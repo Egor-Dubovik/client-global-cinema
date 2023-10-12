@@ -1,24 +1,25 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Outfit } from 'next/font/google';
 
-import './globals.scss';
+import RootLayout from '@/components/RootLayout/RootLayout';
 
-const inter = Inter({ subsets: ['latin'] });
+import './styles/globals.scss';
+
+const inter = Outfit({
+	subsets: ['latin'],
+	weight: ['300', '400', '500', '600', '700'],
+});
 
 export const metadata: Metadata = {
 	title: 'Home page',
 	description: 'Home page',
 };
 
-export default function RootLayout({
-	children,
-}: {
-	children: React.ReactNode;
-}) {
+export default function Layout({ children }: { children: React.ReactNode }) {
 	return (
 		<html lang="en">
 			<body className={inter.className}>
-				<div className="root-layout">{children}</div>
+				<RootLayout>{children}</RootLayout>
 			</body>
 		</html>
 	);
