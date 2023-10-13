@@ -28,6 +28,7 @@
 			"@/config/*": ["config/*"],
 			"@/services/*": ["services/*"],
 			"@/utils/*": ["utils/*"],
+			"@/shared/*": ["shared/*"],
 			"@/store/*": ["store/*"],
 			"@/assets/*": ["assets/*"]
 		}

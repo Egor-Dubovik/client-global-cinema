@@ -1,6 +1,6 @@
 import type { Config } from 'tailwindcss';
-import plugin from 'tailwindcss/plugin';
 import colors from 'tailwindcss/colors';
+import plugin from 'tailwindcss/plugin';
 
 const config: Config = {
 	content: [
@@ -13,7 +13,7 @@ const config: Config = {
 		colors: {
 			primary: '#e30b13',
 			black: colors.black,
-			while: colors.white,
+			white: colors.white,
 			transparent: colors.transparent,
 			yellow: {
 				700: '#f5c521',

@@ -8,6 +8,13 @@ $bar-width: 20%;
 		@apply fixed top-0 bottom-0 overflow-y-scroll;
 		width: $bar-width;
 		max-width: 350px;
+		scrollbar-width: none;
+		background-color: transparent;
+	}
+
+	.sidebarLeft::-webkit-scrollbar,
+	.sidebarRight::-webkit-scrollbar {
+		display: none;
 	}
 
 	.sidebarLeft {
@@ -20,6 +27,6 @@ $bar-width: 20%;
 
 	.mainContent {
 		@apply min-h-screen p-layout;
-		margin: $bar-width;
+		margin: 0 $bar-width;
 	}
 }

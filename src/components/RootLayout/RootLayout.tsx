@@ -1,23 +1,27 @@
-import { IRootLayout } from '@/components/RootLayout/RootLayout.interface';
+import { ReactNode } from 'react';
 
 import styles from './RootLayout.module.scss';
 
+interface IRootLayout {
+	renderHeader?: () => ReactNode;
+	renderFooter?: () => ReactNode;
+	renderMainContent: () => ReactNode;
+	renderSidebarLeft?: () => ReactNode;
+	renderSidebarRight?: () => ReactNode;
+}
+
 const RootLayout = ({
-	renderHeader,
-	renderFooter,
 	renderMainContent,
 	renderSidebarLeft,
 	renderSidebarRight,
 }: IRootLayout) => {
 	return (
 		<div className={styles.layout}>
-			<header className="header">{renderHeader?.()}</header>
 			<section className={styles.sidebarLeft}>{renderSidebarLeft?.()}</section>
 			<div className={styles.mainContent}>{renderMainContent?.()}</div>
 			<section className={styles.sidebarRight}>
 				{renderSidebarRight?.()}
 			</section>
-			<footer className="footer">{renderFooter?.()}</footer>
 		</div>
 	);
 };
