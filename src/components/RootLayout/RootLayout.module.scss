@@ -1,0 +1,32 @@
+$bar-width: 20%;
+
+.layout {
+	@apply relative;
+
+	.sidebarLeft,
+	.sidebarRight {
+		@apply fixed top-0 bottom-0 overflow-y-scroll;
+		width: $bar-width;
+		max-width: 350px;
+		scrollbar-width: none;
+		background-color: transparent;
+	}
+
+	.sidebarLeft::-webkit-scrollbar,
+	.sidebarRight::-webkit-scrollbar {
+		display: none;
+	}
+
+	.sidebarLeft {
+		@apply left-0 border-r border-r-gray-800;
+	}
+
+	.sidebarRight {
+		@apply right-0 border-l border-l-gray-800;
+	}
+
+	.mainContent {
+		@apply min-h-screen p-layout;
+		margin: 0 $bar-width;
+	}
+}
