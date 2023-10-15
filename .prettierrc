@@ -1,8 +1,9 @@
 {
-	"trailingComa": "es5",
+	"trailingComma": "es5",
 	"tabWidth": 2,
-	"useTabs": true,
 	"semi": true,
+	"endOfLine": "auto",
+	"printWidth": 100,
 	"singleQuote": true,
 	"importOrder": [
 		"<THIRD_PARTY_MODULES>",
