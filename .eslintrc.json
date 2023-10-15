@@ -8,13 +8,7 @@
 		"prettier",
 		"next/core-web-vitals"
 	],
-	"plugins": [
-		"@next/next",
-		"@typescript-eslint",
-		"react",
-		"react-hooks",
-		"testing-library"
-	],
+	"plugins": ["@next/next", "@typescript-eslint", "react", "react-hooks", "testing-library"],
 	"env": {
 		"browser": true,
 		"es6": true,
@@ -79,10 +73,7 @@
 	},
 	"overrides": [
 		{
-			"files": [
-				"**/__tests__/**/*.[jt]s?(x)",
-				"**/?(*.)+(spec|test).[jt]s?(x)"
-			],
+			"files": ["**/__tests__/**/*.[jt]s?(x)", "**/?(*.)+(spec|test).[jt]s?(x)"],
 			"extends": ["plugin:testing-library/react"]
 		}
 	]
