@@ -10,18 +10,12 @@ interface IRootLayout {
 	renderSidebarRight?: () => ReactNode;
 }
 
-const RootLayout = ({
-	renderMainContent,
-	renderSidebarLeft,
-	renderSidebarRight,
-}: IRootLayout) => {
+const RootLayout = ({ renderMainContent, renderSidebarLeft, renderSidebarRight }: IRootLayout) => {
 	return (
 		<div className={styles.layout}>
 			<section className={styles.sidebarLeft}>{renderSidebarLeft?.()}</section>
 			<div className={styles.mainContent}>{renderMainContent?.()}</div>
-			<section className={styles.sidebarRight}>
-				{renderSidebarRight?.()}
-			</section>
+			<section className={styles.sidebarRight}>{renderSidebarRight?.()}</section>
 		</div>
 	);
 };

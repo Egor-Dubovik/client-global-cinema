@@ -18,9 +18,7 @@ const MenuItem = ({ item }: IMenuItemProps) => {
 	const pathname = usePathname();
 
 	return (
-		<li
-			className={cn(styles.item, { [styles.active]: pathname === item.link })}
-		>
+		<li className={cn(styles.item, { [styles.active]: pathname === item.link })}>
 			<Link className={styles.itemLink} href={item.link}>
 				{item.icon && <MaterialIcon name={item.icon} />}
 				<span>{item.title}</span>
