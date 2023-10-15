@@ -6,7 +6,6 @@
 		"dev": "next dev",
 		"build": "next build",
 		"start": "next start",
-		"clean": "rd /s /q dist",
 		"lint": "next lint",
 		"fix": "next lint --fix",
 		"prettier": "prettier src/**/*.{ts,tsx} --write",
