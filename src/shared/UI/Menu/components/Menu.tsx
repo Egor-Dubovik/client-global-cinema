@@ -4,7 +4,7 @@ interface IMenu {
 	title?: string;
 }
 
-const Menu = ({ className, title, children }: IMenu) => {
+export const Menu = ({ className, title, children }: IMenu) => {
 	return (
 		<div className={className}>
 			<h2>{title}</h2>
@@ -12,5 +12,3 @@ const Menu = ({ className, title, children }: IMenu) => {
 		</div>
 	);
 };
-
-export default Menu;

@@ -1,4 +1,4 @@
-import { IMenu } from '@/components/Menu/menu.interface';
+import { IMenu } from '@/shared/UI/Menu/types/menu.interface';
 
 export const mainMenu: IMenu = {
 	title: 'Menu',
