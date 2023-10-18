@@ -1,7 +1,6 @@
-import MenuItem from '@/components/Menu/IMenuItem/MenuItem';
-import Menu from '@/components/Menu/Menu';
-import MenuGroup from '@/components/Menu/MenuGroup/MenuGroup';
-import { mainMenu, userMenu } from '@/components/Navigation/NavMenu/navMenu.data';
+import { mainMenu, userMenu } from '@/widgets/Navigation/constants/navMenu';
+
+import { Menu, MenuGroup, MenuItem } from '@/shared/UI/Menu';
 
 const NavMenu = () => {
 	return (

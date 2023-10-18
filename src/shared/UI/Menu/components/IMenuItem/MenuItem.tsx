@@ -4,8 +4,8 @@ import cn from 'classnames';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-import { IMenuItem } from '@/components/Menu/menu.interface';
-import MaterialIcon from '@/components/UI/MaterialIcon';
+import MaterialIcon from '@/shared/UI/MaterialIcon';
+import { IMenuItem } from '@/shared/UI/Menu/types/menu.interface';
 
 import styles from './MenuItem.module.scss';
 
@@ -14,7 +14,7 @@ interface IMenuItemProps {
 	item: IMenuItem;
 }
 
-const MenuItem = ({ item }: IMenuItemProps) => {
+export const MenuItem = ({ item }: IMenuItemProps) => {
 	const pathname = usePathname();
 
 	return (
@@ -26,5 +26,3 @@ const MenuItem = ({ item }: IMenuItemProps) => {
 		</li>
 	);
 };
-
-export default MenuItem;

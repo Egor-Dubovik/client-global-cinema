@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
 import { Outfit } from 'next/font/google';
 
-import Navigation from '@/components/Navigation/Navigation';
-import RootLayout from '@/components/RootLayout/RootLayout';
-import Sidebar from '@/components/Sidebar/Sidebar';
+import { Navigation } from '@/widgets/Navigation';
+import Sidebar from '@/widgets/Sidebar/Sidebar';
 
+import styles from './styles/Layout.module.scss';
 import './styles/globals.scss';
 
 const inter = Outfit({
@@ -21,13 +21,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 	return (
 		<html lang="en">
 			<body className={inter.className}>
-				<RootLayout
-					renderHeader={() => <div>header</div>}
-					renderSidebarLeft={() => <Navigation />}
-					renderMainContent={() => children}
-					renderSidebarRight={() => <Sidebar />}
-					renderFooter={() => <div>footer</div>}
-				/>
+				<div className={styles.layout}>
+					<Navigation className={styles.sidebarLeft} />
+					<main className={styles.mainContent}>{children}</main>
+					<Sidebar className={styles.sidebarRight} />
+				</div>
 			</body>
 		</html>
 	);
