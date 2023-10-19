@@ -1,5 +1,5 @@
 import { MenuGroup, MenuItem } from '@/shared/UI/Menu';
-import { IMenuItem } from '@/shared/UI/Menu/types/menu.interface';
+import { IMenuItem } from '@/shared/UI/Menu/types';
 import { getGenres } from '@/shared/api/genres';
 import { getGenreUrl } from '@/shared/config/api.config';
 

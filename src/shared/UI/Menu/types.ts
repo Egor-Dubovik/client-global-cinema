@@ -1,4 +1,4 @@
-import { TypeMaterialIcon } from '@/shared/types/icon.types';
+import { TypeMaterialIcon } from '@/shared/types/icon.type';
 
 export interface IMenu {
 	title: string;

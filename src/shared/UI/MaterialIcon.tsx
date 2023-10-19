@@ -1,6 +1,6 @@
 import * as MaterialIcons from 'react-icons/md';
 
-import { TypeMaterialIcon } from '../types/icon.types';
+import { TypeMaterialIcon } from '../types/icon.type';
 
 const MaterialIcon = ({ name }: { name: TypeMaterialIcon }) => {
 	const IconComponent = MaterialIcons[name];
