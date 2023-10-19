@@ -5,11 +5,11 @@ import { Loader, LoaderSize } from '@/shared/UI/Loader';
 import styles from './styles.module.scss';
 
 interface IButtonProps {
-	className: string;
+	className?: string;
 	children: React.ReactNode;
-	isLoading: boolean;
-	isDisabled: boolean;
-	other: unknown;
+	isLoading?: boolean;
+	isDisabled?: boolean;
+	[key: string]: unknown;
 }
 
 export const Button = (props: IButtonProps) => {
