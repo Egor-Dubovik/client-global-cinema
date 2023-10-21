@@ -12,7 +12,7 @@ export const metadata = createMetadata({
 export default function Home() {
 	return (
 		<main>
-			<Heading title="Watch movies online" className="text-gray-500 mb-8" variant="h1" />
+			<Heading title="Watch movies online" className="text-gray-3 00 mb-8" variant="h1" />
 		</main>
 	);
 }
