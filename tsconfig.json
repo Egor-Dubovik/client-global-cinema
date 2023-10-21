@@ -38,6 +38,13 @@
 		"incremental": true,
 		"isolatedModules": true
 	},
-	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "jest.setup.js"],
+	"include": [
+		"next-env.d.ts",
+		"**/*.ts",
+		"**/*.tsx",
+		".next/types/**/*.ts",
+		"jest.setup.js",
+		"src/shared/config/seo/meta.configts"
+	],
 	"exclude": ["node_modules"]
 }

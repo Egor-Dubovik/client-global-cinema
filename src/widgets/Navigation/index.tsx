@@ -1,6 +1,6 @@
 import cn from 'classnames';
 
-import NavMenu from '@/widgets/Navigation/components/NavMenu/NavMenu';
+import NavMenu from '@/widgets/Navigation/components/NavMenu';
 
 import Logo from '@/shared/UI/Logo';
 

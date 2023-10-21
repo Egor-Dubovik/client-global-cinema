@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 import MaterialIcon from '@/shared/UI/MaterialIcon';
-import { IMenuItem } from '@/shared/UI/Menu/types/menu.interface';
+import { IMenuItem } from '@/shared/UI/Menu/types';
 
 import styles from './MenuItem.module.scss';
 
