@@ -1,20 +1,18 @@
 'use client';
 
-import { Metadata } from 'next';
 import { useRouter } from 'next/navigation';
 
 import { Button } from '@/shared/UI/Button';
-import { APP_NAME } from '@/shared/config/seo/constants';
-import { createMetadata } from '@/shared/config/seo/meta.config';
+import { Heading } from '@/shared/UI/Heading';
 
 export default function NotFound() {
 	const router = useRouter();
 
 	return (
-		<div>
-			<h2>Not Found</h2>
+		<main>
+			<Heading title="Watch movies online" className="text-gray-500 mb-8" variant="h1" />
 			<p>Could not find requested resource</p>
 			<Button onClick={() => router.back()}>go back</Button>
-		</div>
+		</main>
 	);
 }
