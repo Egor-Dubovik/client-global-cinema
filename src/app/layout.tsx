@@ -4,6 +4,8 @@ import { Outfit } from 'next/font/google';
 import { Navigation } from '@/widgets/Navigation';
 import Sidebar from '@/widgets/Sidebar/Sidebar';
 
+import { TITLE_TEMPLATE } from '@/shared/config/seo/constants';
+
 import styles from './styles/Layout.module.scss';
 import './styles/globals.scss';
 
@@ -13,8 +15,10 @@ const inter = Outfit({
 });
 
 export const metadata: Metadata = {
-	title: 'Home page',
-	description: 'Home page',
+	title: {
+		template: TITLE_TEMPLATE,
+		default: '404',
+	},
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

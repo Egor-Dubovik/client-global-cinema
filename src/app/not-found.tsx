@@ -1,8 +1,11 @@
 'use client';
 
+import { Metadata } from 'next';
 import { useRouter } from 'next/navigation';
 
 import { Button } from '@/shared/UI/Button';
+import { APP_NAME } from '@/shared/config/seo/constants';
+import { createMetadata } from '@/shared/config/seo/meta.config';
 
 export default function NotFound() {
 	const router = useRouter();
