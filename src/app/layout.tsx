@@ -4,7 +4,7 @@ import { Outfit } from 'next/font/google';
 import Providers from '@/app/providers';
 
 import { Navigation } from '@/widgets/Navigation';
-import Sidebar from '@/widgets/Sidebar/Sidebar';
+import Sidebar from '@/widgets/Sidebar';
 
 import { TITLE_TEMPLATE } from '@/shared/config/seo/constants';
 

@@ -1,0 +1,15 @@
+.wrapper {
+	@apply px-3 py-2 flex items-center border border-gray-500 rounded-3xl transition-colors;
+
+	svg {
+		@apply fill-gray-400 mr-2 text-3xl transition-colors;
+	}
+
+	&:focus-within {
+		@apply border-gray-400;
+
+		svg {
+			@apply fill-gray-300;
+		}
+	}
+}
