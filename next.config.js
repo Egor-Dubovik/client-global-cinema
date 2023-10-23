@@ -6,6 +6,19 @@ const nextConfig = {
 		MODE: process.env.REACT_APP_MODE,
 		SERVER_URL: process.env.REACT_APP_SERVER_URL,
 	},
+
+	async rewrites() {
+		return [
+			{
+				source: '/api/:path*',
+				destination: `${process.env.REACT_APP_SERVER_URL}/api/:path*`,
+			},
+			{
+				source: '/uploads/:path*',
+				destination: `${process.env.REACT_APP_SERVER_URL}/uploads/:path*`,
+			},
+		];
+	},
 };
 
 module.exports = nextConfig;

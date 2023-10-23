@@ -1,0 +1,11 @@
+.input {
+	@apply px-1 w-full text-white block placeholder:text-gray-500 bg-transparent outline-none;
+
+	&:focus {
+		@apply border-gray-400;
+	}
+}
+
+.input_disabled {
+	opacity: 0.7;
+}

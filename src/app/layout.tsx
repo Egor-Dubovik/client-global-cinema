@@ -1,8 +1,10 @@
 import type { Metadata } from 'next';
 import { Outfit } from 'next/font/google';
 
+import Providers from '@/app/providers';
+
 import { Navigation } from '@/widgets/Navigation';
-import Sidebar from '@/widgets/Sidebar/Sidebar';
+import Sidebar from '@/widgets/Sidebar';
 
 import { TITLE_TEMPLATE } from '@/shared/config/seo/constants';
 
@@ -25,11 +27,13 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 	return (
 		<html lang="en">
 			<body className={inter.className}>
-				<div className={styles.layout}>
-					<Navigation className={styles.sidebarLeft} />
-					<main className={styles.mainContent}>{children}</main>
-					<Sidebar className={styles.sidebarRight} />
-				</div>
+				<Providers>
+					<div className={styles.layout}>
+						<Navigation className={styles.sidebarLeft} />
+						<main className={styles.mainContent}>{children}</main>
+						<Sidebar className={styles.sidebarRight} />
+					</div>
+				</Providers>
 			</body>
 		</html>
 	);

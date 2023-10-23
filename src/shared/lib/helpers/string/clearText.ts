@@ -1,5 +1,5 @@
 export const clearText = (string: string, limit: number | null = null): string => {
-	let result = string
+	const result = string
 		.replace(/<[^>]*>/g, '')
 		.replace(/&[^;]*./g, ' ')
 		.replace(
