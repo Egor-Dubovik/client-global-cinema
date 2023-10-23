@@ -10,7 +10,7 @@ import { useEventListener } from '@/shared/hooks/useEventListener';
 
 import styles from './styles.module.scss';
 
-export const Search = () => {
+const Search = () => {
 	const { data, isSuccess, query, handleSearch } = useSearch();
 	const wrapperRef = useRef<HTMLDivElement | null>(null);
 
@@ -21,7 +21,7 @@ export const Search = () => {
 		}
 	};
 
-	useEventListener(document, 'mousedown', handleClickOutside);
+	useEventListener(null, 'mousedown', handleClickOutside);
 
 	return (
 		<div className={styles.wrapper} ref={wrapperRef}>
@@ -30,3 +30,5 @@ export const Search = () => {
 		</div>
 	);
 };
+
+export default Search;

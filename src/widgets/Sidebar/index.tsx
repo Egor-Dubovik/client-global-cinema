@@ -1,5 +1,6 @@
 import cn from 'classnames';
-import { Search } from 'features/Search';
+
+import Search from '@/features/Search';
 
 import styles from './styles.module.scss';
 
