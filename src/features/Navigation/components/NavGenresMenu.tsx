@@ -1,3 +1,5 @@
+import { GENRES_MENU_AMOUNT } from '@/features/Navigation/constants';
+
 import { getGenres, mapGenresToNavMenu } from '@/entities/Genre';
 
 import { MenuGroup, MenuItem } from '@/shared/UI/Menu';
@@ -6,7 +8,7 @@ import { INIT_VALUE } from '@/shared/constants/numbers';
 
 export const NavGenresMenu = async () => {
 	const genres = await getGenres();
-	const genreItems = mapGenresToNavMenu(genres).splice(INIT_VALUE, 4);
+	const genreItems = mapGenresToNavMenu(genres).splice(INIT_VALUE, GENRES_MENU_AMOUNT);
 
 	return (
 		<>
