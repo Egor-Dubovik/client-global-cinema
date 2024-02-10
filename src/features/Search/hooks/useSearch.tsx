@@ -9,13 +9,11 @@ export const useSearch = () => {
 	const [query, setQuery] = useState('');
 	const debouncedQuery = useDebounce(query, DEBOUNCED_DELAY);
 
-	const { data, isSuccess } = useQuery(
-		['search movie list', debouncedQuery],
-		() => MovieService.getAll(debouncedQuery),
-		{
-			enabled: !!debouncedQuery,
-		}
-	);
+	const { data, isSuccess } = useQuery({
+		queryKey: ['search movie list', debouncedQuery],
+		queryFn: () => MovieService.getAll(debouncedQuery),
+		enabled: !!debouncedQuery,
+	});
 
 	const handleSearch = (query: string) => {
 		setQuery(query);
