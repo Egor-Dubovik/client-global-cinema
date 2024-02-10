@@ -2,7 +2,7 @@ import { mainMenu } from '@/widgets/Navigation/constants/navMenu';
 
 import { MenuGroup, MenuItem } from '@/shared/UI/Menu';
 
-export const MainMenuGroup = () => {
+export const NavMainMenu = () => {
 	return (
 		<MenuGroup title={mainMenu.title}>
 			{mainMenu.items.map((item) => (

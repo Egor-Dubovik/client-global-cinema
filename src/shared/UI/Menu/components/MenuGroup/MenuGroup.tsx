@@ -9,7 +9,7 @@ export const MenuGroup = ({ title, children }: IMenuGroup) => {
 	return (
 		<div className={styles.group}>
 			<h3 className={styles.heading}>{title}</h3>
-			<ul>{children}</ul>
+			<ul className={styles.list}>{children}</ul>
 		</div>
 	);
 };

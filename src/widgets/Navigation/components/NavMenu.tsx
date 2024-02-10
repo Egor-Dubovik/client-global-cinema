@@ -1,15 +1,13 @@
-import { GenresMenuGroup } from '@/widgets/Navigation/components/GenresMenuGroup';
-import { MainMenuGroup } from '@/widgets/Navigation/components/MainMenuGroup';
-import { UserMenuGroup } from '@/widgets/Navigation/components/UserMenuGroup';
+import { NavGenresMenu, NavMainMenu, NavUserMenu } from '@/features/Navigation';
 
 import { Menu } from '@/shared/UI/Menu';
 
 const NavMenu = () => {
 	return (
 		<Menu>
-			<MainMenuGroup />
-			<GenresMenuGroup />
-			<UserMenuGroup />
+			<NavMainMenu />
+			<NavGenresMenu />
+			<NavUserMenu />
 		</Menu>
 	);
 };

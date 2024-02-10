@@ -2,11 +2,16 @@
 	@apply px-8 border-r-4 border-r-transparent transition-colors;
 
 	.itemLink {
-		@apply flex items-center text-gray-600 px-3 mt-6 cursor-pointer;
+		@apply flex items-center text-gray-600 px-3 cursor-pointer;
+	}
+
+	.itemLink:hover > span,
+	.itemLink:hover > svg {
+		@apply text-white;
 	}
 
 	span {
-		@apply ml-3 text-lg hover:text-white;
+		@apply py-1 ml-3 text-lg;
 	}
 
 	svg {
