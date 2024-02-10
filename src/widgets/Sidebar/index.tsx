@@ -1,13 +1,13 @@
 import cn from 'classnames';
 
-import Search from '@/features/Search';
+import SearchMovies from '@/features/SearchMovies';
 
 import styles from './styles.module.scss';
 
 const Sidebar = ({ className }: { className?: string }) => {
 	return (
 		<div className={cn(styles.sidebar, className)}>
-			<Search />
+			<SearchMovies />
 			{/* popular movies block */}
 		</div>
 	);

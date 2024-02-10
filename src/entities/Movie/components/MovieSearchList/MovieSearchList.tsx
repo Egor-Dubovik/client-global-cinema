@@ -1,13 +1,15 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
+import { MOVIE_NOT_FOUND } from '@/entities/Movie/consts';
+
 import { List, ListItem } from '@/shared/UI/List';
 import { IMovie } from '@/shared/api/movies/models';
 import { getMovieUrl } from '@/shared/config/api.config';
 
-import styles from './SearchList.module.scss';
+import styles from './MovieSearchList.module.scss';
 
-export const SearchList = ({ movies }: { movies: IMovie[] }) => {
+export const MovieSearchList = ({ movies }: { movies: IMovie[] }) => {
 	return (
 		<List className={styles.list}>
 			{movies.length ? (
@@ -28,7 +30,7 @@ export const SearchList = ({ movies }: { movies: IMovie[] }) => {
 					</ListItem>
 				))
 			) : (
-				<li>Movies not found</li>
+				<ListItem>{MOVIE_NOT_FOUND}</ListItem>
 			)}
 		</List>
 	);

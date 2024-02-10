@@ -1,7 +1,7 @@
-import { IActor } from '@/shared/api/actors/models';
-import { IGenre } from '@/shared/api/genres/models';
+import { IActor } from '@/entities/Actor';
+import { IGenre } from '@/entities/Genre';
 
-export interface IParameters {
+export interface IMovieParameters {
 	year: number;
 	duration: number;
 	country: string;
@@ -14,7 +14,7 @@ export interface IMovie {
 	slug: string;
 	title: string;
 	description: string;
-	parameters?: IParameters;
+	parameters?: IMovieParameters;
 	videoUrl: string;
 	genres: IGenre[];
 	actors: IActor[];

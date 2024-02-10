@@ -2,7 +2,7 @@ import { Input, TypeInput } from '@/shared/UI/Input';
 import MaterialIcon from '@/shared/UI/MaterialIcon';
 import { TypeMaterialIcon } from '@/shared/types/icon.type';
 
-import styles from './SearchField.module.scss';
+import styles from './styles.module.scss';
 
 interface ISearchFieldProps {
 	searchTerm: string;
@@ -10,7 +10,7 @@ interface ISearchFieldProps {
 	icon?: TypeMaterialIcon;
 }
 
-export const SearchField = ({ searchTerm, handleSearch, icon }: ISearchFieldProps) => {
+const Searcher = ({ searchTerm, handleSearch, icon }: ISearchFieldProps) => {
 	return (
 		<div className={styles.wrapper}>
 			{icon && <MaterialIcon name={icon} />}
@@ -22,3 +22,5 @@ export const SearchField = ({ searchTerm, handleSearch, icon }: ISearchFieldProp
 		</div>
 	);
 };
+
+export default Searcher;
