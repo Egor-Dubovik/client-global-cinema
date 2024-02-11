@@ -1,5 +1,6 @@
 import { getMostPopularMovies } from '@/entities/Movie/api/getMostPopularMovies';
-import { MoviesShortList } from '@/entities/Movie/components/MoviesShortList/MoviesShortList';
+
+import { MoviesShortList } from '../MoviesShortList/MoviesShortList';
 
 interface IProps {
 	className?: string;
