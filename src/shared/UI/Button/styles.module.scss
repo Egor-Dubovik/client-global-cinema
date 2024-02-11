@@ -2,11 +2,11 @@
 	@apply flex box-border items-center justify-center py-2 px-4 bg-primary cursor-pointer text-lg font-bold gap-3 ease-in duration-150;
 
 	&:hover {
-		opacity: 0.7;
+		background-color: $bg-primary-hover;
 	}
 
 	&:disabled {
-		opacity: 1;
+		opacity: 0.3;
 	}
 
 	.loader > div {

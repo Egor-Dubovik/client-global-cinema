@@ -1,0 +1,8 @@
+.rating {
+	@apply flex items-center;
+	user-select: none;
+
+	> svg {
+		@apply fill-yellow-700 mr-2 text-lg;
+	}
+}

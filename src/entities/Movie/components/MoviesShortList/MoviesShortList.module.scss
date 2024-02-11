@@ -1,0 +1,12 @@
+.wrapper {
+	.title {
+		@apply font-bold text-xl mb-5 text-white capitalize;
+	}
+	.list {
+		@apply mb-6 animate-fade;
+	}
+	.button {
+		@apply button-primary;
+		width: 100%;
+	}
+}

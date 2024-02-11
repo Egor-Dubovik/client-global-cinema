@@ -20,4 +20,11 @@ export interface IMovie {
 	actors: IActor[];
 	isSendTelegram?: boolean;
 	countOpened: number;
+	rating: number;
+}
+
+export interface IMovieShortList {
+	title: string;
+	link: string;
+	movies: IMovie[];
 }

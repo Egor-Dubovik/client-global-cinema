@@ -1,5 +1,3 @@
-import cn from 'classnames';
-
 interface IProps {
 	children: React.ReactNode;
 	className?: string;
@@ -8,7 +6,7 @@ interface IProps {
 
 export const ListItem = ({ children, className, ...other }: IProps) => {
 	return (
-		<li className={cn('flex flex-col', className)} {...other}>
+		<li className={className} {...other}>
 			{children}
 		</li>
 	);
