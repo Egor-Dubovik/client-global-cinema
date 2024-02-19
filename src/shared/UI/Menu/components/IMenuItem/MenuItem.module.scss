@@ -24,7 +24,8 @@
 	}
 
 	&.active {
-		@apply border-r-primary;
+		@apply border-r-2 border-solid border-r-primary;
+
 		.itemLink,
 		span {
 			@apply text-white;

@@ -1,3 +1,7 @@
+'use client';
+
+import { useEffect } from 'react';
+
 import { GENRES_MENU_AMOUNT } from '@/features/Navigation/constants';
 
 import { getGenres, mapGenresToNavMenu } from '@/entities/Genre';
@@ -5,10 +9,25 @@ import { getGenres, mapGenresToNavMenu } from '@/entities/Genre';
 import { MenuGroup, MenuItem } from '@/shared/UI/Menu';
 import { Skeleton } from '@/shared/UI/Skeleton';
 import { INIT_VALUE } from '@/shared/constants/numbers';
+import { IAxiosError } from '@/shared/types/axios.type';
 
-export const NavGenresMenu = async () => {
-	const genres = await getGenres();
-	const genreItems = mapGenresToNavMenu(genres).splice(INIT_VALUE, GENRES_MENU_AMOUNT);
+export const NavGenresMenu = () => {
+	let genreItems;
+
+	const getT = async () => {
+		try {
+			const genres = await getGenres();
+			genreItems = mapGenresToNavMenu(genres).splice(INIT_VALUE, GENRES_MENU_AMOUNT);
+		} catch (e) {
+			const err = e as IAxiosError;
+			console.log(err);
+			return <p>{`${err.cause} ${err.code} ${err.name} ${err.code}`}</p>;
+		}
+	};
+
+	useEffect(() => {
+		getT();
+	}, []);
 
 	return (
 		<>
