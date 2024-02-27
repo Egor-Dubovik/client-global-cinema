@@ -16,6 +16,9 @@ const config: Config = {
 			black: colors.black,
 			white: colors.white,
 			transparent: colors.transparent,
+			error: {
+				500: '#e30b13',
+			},
 			yellow: {
 				700: '#f5c521',
 			},
