@@ -6,7 +6,7 @@ import Providers from '@/app/providers';
 import { Navigation } from '@/widgets/Navigation';
 import Sidebar from '@/widgets/Sidebar';
 
-import { TITLE_TEMPLATE } from '@/shared/config/seo/constants';
+import { BG_COLOR, TITLE_TEMPLATE } from '@/shared/config/seo/constants';
 
 import styles from './styles/Layout.module.scss';
 import './styles/globals.scss';
@@ -20,6 +20,10 @@ export const metadata: Metadata = {
 	title: {
 		template: TITLE_TEMPLATE,
 		default: '404',
+	},
+	themeColor: BG_COLOR,
+	appleWebApp: {
+		statusBarStyle: 'black',
 	},
 };
 
