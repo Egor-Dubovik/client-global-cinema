@@ -20,7 +20,7 @@ export const MoviesShortList = ({ title, link, movies, className }: IProps) => {
 			<Heading className={styles.title} title={title} variant="h2" />
 			<List className={styles.list}>
 				{movies.map((movie) => (
-					<MovieShortListItem movie={movie} />
+					<MovieShortListItem key={movie._id} movie={movie} />
 				))}
 			</List>
 			<Link href={link}>
