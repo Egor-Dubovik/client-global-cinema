@@ -7,12 +7,11 @@ import { MenuGroup, MenuItem } from '@/shared/UI/Menu';
 import { Skeleton } from '@/shared/UI/Skeleton';
 import { INIT_VALUE } from '@/shared/constants/numbers';
 
-//TODO add tost error
-
 export const NavGenresMenu = async () => {
 	const genres = await getGenres();
-	if ('error' in genres)
-		return <Notifier type="error" title="Warning" description={genres.error} />;
+	if ('error' in genres) {
+		return <Notifier type="warning" title="Warning" description={genres.error} />;
+	}
 
 	const genreItems = mapGenresToNavMenu(genres).splice(INIT_VALUE, GENRES_MENU_AMOUNT);
 

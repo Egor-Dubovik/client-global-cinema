@@ -2,7 +2,7 @@ import { NextAuthOptions } from 'next-auth';
 import NextAuth from 'next-auth/next';
 import CredentialsProvider from 'next-auth/providers/credentials';
 
-import { API_URL, PATH } from '@/shared/constants/api';
+import { API_URL, getAuthUrl } from '@/shared/config/api.config';
 
 export const authOptions: NextAuthOptions = {
 	providers: [
@@ -18,7 +18,7 @@ export const authOptions: NextAuthOptions = {
 				if (!credentials?.email || !credentials?.password) return null;
 				const { email, password } = credentials;
 
-				const res = await fetch(API_URL + PATH.LOGIN, {
+				const res = await fetch(`${API_URL}${getAuthUrl('/auth/login')}`, {
 					method: 'POST',
 					body: JSON.stringify({
 						email,

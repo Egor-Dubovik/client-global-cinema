@@ -21,12 +21,12 @@ const Providers = ({ children }: { children: React.ReactNode }) => {
 	return (
 		<>
 			<TopLoader />
-			<Provider store={createReduxStore()}>
-				<ToastProvider />
-				<QueryClientProvider client={queryClient}>
-					<SessionProvider>{children}</SessionProvider>
-				</QueryClientProvider>
-			</Provider>
+			<SessionProvider>
+				<Provider store={createReduxStore()}>
+					<ToastProvider />
+					<QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+				</Provider>
+			</SessionProvider>
 		</>
 	);
 };
