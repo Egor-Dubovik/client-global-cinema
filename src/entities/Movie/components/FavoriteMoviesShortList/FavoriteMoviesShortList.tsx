@@ -1,6 +1,6 @@
 import { IMovie } from '@/entities/Movie';
-import { NOT_AUTH_FAVORITES } from '@/entities/Viewer';
 
+import { NOT_AUTH_FAVORITES } from '../../consts';
 import { MoviesShortList } from '../MoviesShortList/MoviesShortList';
 
 interface IProps {

@@ -12,7 +12,8 @@ const config: Config = {
 
 	theme: {
 		colors: {
-			primary: '#e30b13',
+			primary: '#4791ff',
+			primaryHover: '#3b8aff',
 			black: colors.black,
 			white: colors.white,
 			transparent: colors.transparent,
@@ -87,19 +88,18 @@ const config: Config = {
 					backgroundColor: theme('colors.primary'),
 					borderRadius: '0.65rem',
 					color: '#fff',
-					transition: 'background-color 0.3 ease-in-out',
+					transition: 'background-color 0.3s ease',
 					'&:hover': {
-						backgroundColor: '#ff0009',
+						backgroundColor: '#3b8aff',
 					},
 				},
-				'text-link': {
-					color: 'rgba(255, 255, 255 0.9)',
-					transition: 'text-decoration-color 0.3 ease-in-out',
-					textDecorationLine: 'underline',
-					textDecorationColor: 'rgba(255, 255, 255 0.2)',
-					textUnderlineOffset: '4',
+				'.text-link': {
+					color: 'rgba(255, 255, 255, 0.9)',
+					transition: 'text-decoration-color 0.3s ease',
+					textDecoration: 'underline',
+					textUnderlineOffset: '2px',
 					'&:hover': {
-						textDecorationColor: 'rgba(255, 255, 255 0.9)',
+						textDecorationColor: 'rgba(255, 255, 255, 0.9)',
 					},
 				},
 				'.air-block': {

@@ -1,4 +1,3 @@
-import { Input, TypeInput } from '@/shared/UI/Input';
 import MaterialIcon from '@/shared/UI/MaterialIcon';
 import { TypeMaterialIcon } from '@/shared/types/icon.type';
 
@@ -14,9 +13,9 @@ const Searcher = ({ searchTerm, handleSearch, icon }: ISearchFieldProps) => {
 	return (
 		<div className={styles.wrapper}>
 			{icon && <MaterialIcon name={icon} />}
-			<Input
+			<input
 				value={searchTerm}
-				onChange={handleSearch as (value: TypeInput) => void}
+				onChange={(event) => handleSearch(event.target.value)}
 				placeholder="Search"
 			/>
 		</div>

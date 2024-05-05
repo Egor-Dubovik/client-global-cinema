@@ -1,5 +1,5 @@
-import { IUser } from '../model/types';
+import { IUserData } from '../model/types';
 
-export const useAuth = (): IUser | null => {
-	return null;
+export const useAuth = (): IUserData => {
+	return { user: null, isLoading: false };
 };

@@ -1,0 +1,11 @@
+.layout {
+	@apply text-center air-block bg-opacity-80 p-7;
+	max-width: 400px;
+	margin: 32px auto 0 auto;
+	> form {
+		button {
+			margin-bottom: 20px;
+			width: 100%;
+		}
+	}
+}
