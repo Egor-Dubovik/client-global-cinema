@@ -7,6 +7,7 @@ import { useAuth } from '@/entities/User';
 import { Button } from '@/shared/UI/Button';
 import { Input } from '@/shared/UI/Input';
 import { getAuthUrl } from '@/shared/config/api.config';
+import { useActions } from '@/shared/hooks/useActions';
 
 import { AUTH_ERRORS } from '../../../../constants';
 import { getEmailRules, getPasswordRules } from '../../../../helpers/rules';
@@ -23,15 +24,12 @@ export const RegisterForm = () => {
 		getValues,
 		reset,
 	} = useForm<IRegisterForm>({ mode: 'onChange' });
+	const { register: signup } = useActions();
 	const { isLoading } = useAuth();
 
 	const checkPasswordsValidation = (value: string) => {
 		if (value === getValues('password')) return true;
 		return AUTH_ERRORS.PASSWORD_CONFIRM;
-	};
-
-	const signup = (data: any) => {
-		console.log('register', data);
 	};
 
 	const onSubmit: SubmitHandler<IRegisterForm> = (data) => {

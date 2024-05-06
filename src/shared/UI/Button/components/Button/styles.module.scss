@@ -6,16 +6,10 @@
 	}
 
 	&:disabled {
-		opacity: 0.3;
+		@apply bg-gray-400;
+		opacity: 0.75;
+		cursor: not-allowed;
 	}
-
-	.loader > div {
-		@apply bg-gray-600;
-	}
-}
-
-.button_disabled {
-	@apply bg-gray-400;
 }
 
 .round {

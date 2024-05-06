@@ -4,5 +4,5 @@ import { getLocalStore } from '@/utils/storage/getLocalStore';
 
 export const initialState: IUserData = {
 	user: getLocalStore('user'),
-	isLoading: true,
+	isLoading: false,
 };

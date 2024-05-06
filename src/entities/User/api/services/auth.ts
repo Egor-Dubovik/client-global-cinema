@@ -9,7 +9,7 @@ import { getAuthUrl } from '@/shared/config/api.config';
 
 export const AuthService = {
 	async register(email: string, password: string): Promise<IAuthResponse> {
-		const response = await axiosClassic.post<IAuthResponse>(getAuthUrl('/register'), {
+		const response = await axiosClassic.post<IAuthResponse>(getAuthUrl('register'), {
 			email,
 			password,
 		});
@@ -19,7 +19,7 @@ export const AuthService = {
 	},
 
 	async login(email: string, password: string): Promise<IAuthResponse> {
-		const response = await axiosClassic.post<IAuthResponse>(getAuthUrl('/login'), {
+		const response = await axiosClassic.post<IAuthResponse>(getAuthUrl('login'), {
 			email,
 			password,
 		});
@@ -33,7 +33,7 @@ export const AuthService = {
 	},
 
 	async getNewTokens(): Promise<IAuthResponse> {
-		const response = await axiosClassic.post<IAuthResponse>(getAuthUrl('/login/access-token'), {
+		const response = await axiosClassic.post<IAuthResponse>(getAuthUrl('login/access-token'), {
 			refreshToken: Cookies.get('refreshToken'),
 		});
 

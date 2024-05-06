@@ -7,6 +7,7 @@ import { useAuth } from '@/entities/User';
 import { Button } from '@/shared/UI/Button';
 import { Input } from '@/shared/UI/Input';
 import { getAuthUrl } from '@/shared/config/api.config';
+import { useActions } from '@/shared/hooks/useActions';
 
 import { getEmailRules, getPasswordRules } from '../../../../helpers/rules';
 import { FormLinkText } from '../../../FormLinkText';
@@ -21,11 +22,8 @@ export const LoginForm = () => {
 		formState: { errors },
 		reset,
 	} = useForm<ILoginForm>({ mode: 'onChange' });
+	const { login } = useActions();
 	const { isLoading } = useAuth();
-
-	const login = (data: any) => {
-		console.log('login', data);
-	};
 
 	const onSubmit: SubmitHandler<ILoginForm> = (data) => {
 		login(data);

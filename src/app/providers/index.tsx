@@ -4,8 +4,9 @@ import { SessionProvider } from 'next-auth/react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { Provider } from 'react-redux';
 
+import { createReduxStore } from '@/app/store';
+
 import { TopLoader } from '@/shared/UI/TopLoader';
-import { createReduxStore } from '@/shared/store';
 
 import ToastProvider from './all/withToast';
 
@@ -21,12 +22,12 @@ const Providers = ({ children }: { children: React.ReactNode }) => {
 	return (
 		<>
 			<TopLoader />
-			<SessionProvider>
-				<Provider store={createReduxStore()}>
-					<ToastProvider />
-					<QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
-				</Provider>
-			</SessionProvider>
+			{/* <SessionProvider> */}
+			<Provider store={createReduxStore()}>
+				<ToastProvider />
+				<QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+			</Provider>
+			{/* </SessionProvider> */}
 		</>
 	);
 };

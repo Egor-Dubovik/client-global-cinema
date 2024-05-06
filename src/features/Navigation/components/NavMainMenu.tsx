@@ -1,6 +1,6 @@
-import { mainMenu } from '@/widgets/Navigation/constants/navMenu';
-
 import { MenuGroup, MenuItem } from '@/shared/UI/Menu';
+
+import { mainMenu } from '../constants';
 
 export const NavMainMenu = () => {
 	return (

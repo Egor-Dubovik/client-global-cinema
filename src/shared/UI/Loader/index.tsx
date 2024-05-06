@@ -16,7 +16,7 @@ interface ILoaderProps {
 
 export const Loader = ({ className, isLoading = true, size = LoaderSize.M }: ILoaderProps) => {
 	return isLoading ? (
-		<div className={className}>
+		<div className={cn(styles.wrapper, className)}>
 			<div
 				className={cn(styles.loader, {
 					[styles._small]: size === LoaderSize.S,
