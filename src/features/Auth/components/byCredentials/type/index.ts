@@ -1,10 +1,7 @@
-export interface ILoginForm {
-	email: string;
-	password: string;
-}
+import { IAuthParams } from '@/entities/User';
 
-export interface IRegisterForm {
-	email: string;
-	password: string;
+export interface ILoginForm extends IAuthParams {}
+
+export interface IRegisterForm extends IAuthParams {
 	repeatPassword: string;
 }

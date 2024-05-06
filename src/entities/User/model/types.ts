@@ -3,11 +3,24 @@ export interface IUser {
 	email: string;
 	isAdmin?: boolean;
 	favorites?: string[];
+	createdAt: string;
+}
+
+export interface ITokens {
+	accessToken: string;
+	refreshToken: string;
 }
 
 export interface IUserData {
 	user: IUser | null;
 	isLoading: boolean;
-	// refreshToken: string;
-	// accessToken: string;
+}
+
+export interface IAuthResponse extends ITokens {
+	user: IUser;
+}
+
+export interface IAuthParams {
+	email: string;
+	password: string;
 }
