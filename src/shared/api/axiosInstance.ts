@@ -1,6 +1,9 @@
 import axios, { AxiosError } from 'axios';
 
+import { AuthService } from '@/entities/User';
+
 import { createAxiosInstance } from '@/shared/utils/axios';
+import { errorCatch } from '@/shared/utils/error/errorCatch';
 
 export const axiosClassic = createAxiosInstance();
 export const $api = createAxiosInstance(true);
@@ -19,18 +22,21 @@ $api.interceptors.response.use(
 	},
 	async (error) => {
 		const originalRequest = error.config;
-		if (error.response.status == 401 && error.config && !error.config._isRetry) {
+		if (
+			(error.response.status == 401 ||
+				errorCatch(error) === 'jwt expired' ||
+				errorCatch(error) === 'jwt must be provided') &&
+			error.config &&
+			!error.config._isRetry
+		) {
 			originalRequest._isRetry = true;
 			try {
-				if (typeof window !== 'undefined') {
-					const refreshToken = localStorage.getItem('refreshToken');
-					if (refreshToken) {
-						// const tokens = await refreshTokens(refreshToken);
-						// addTokens(tokens);
-						return $api.request(originalRequest);
-					}
-				}
+				await AuthService.getNewTokens();
+				return $api.request(originalRequest);
 			} catch (e) {
+				if (errorCatch(e) === 'jwt expired') {
+					await AuthService.logout();
+				}
 				console.log('NOT AUTHORIZED');
 			}
 		}

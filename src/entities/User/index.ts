@@ -6,3 +6,5 @@ export * as userThunks from './model/thunks';
 
 export { useAuth } from './hooks/useAuth';
 export { useAuthRedirect } from './hooks/useAuthRedirect';
+
+export { AuthService } from './api/services/auth';

@@ -1,11 +1,10 @@
 import Cookies from 'js-cookie';
 
-import { clearUserDataFromStorage, saveUserDataToStorage } from '@/features/Auth/helpers/storage';
-
 import { IAuthResponse } from '@/entities/User';
 
 import { axiosClassic } from '@/shared/api';
 import { getAuthUrl } from '@/shared/config/api.config';
+import { clearUserDataFromStorage, saveUserDataToStorage } from '@/shared/utils/storage/storage';
 
 export const AuthService = {
 	async register(email: string, password: string): Promise<IAuthResponse> {

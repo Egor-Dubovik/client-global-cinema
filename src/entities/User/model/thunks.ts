@@ -44,19 +44,16 @@ export const logout = createAsyncThunk('auth/logout', async (_, thunkApi) => {
 	}
 });
 
-export const checkAuth = createAsyncThunk<IAuthResponse, IAuthParams>(
-	'auth/check-auth',
-	async (_, thunkApi) => {
-		try {
-			const data = await AuthService.getNewTokens();
-			return data;
-		} catch (error) {
-			if (errorCatch(error) === 'jwt expired') {
-				toastrError('Logout', 'Your authorized is finished, plz sign in again');
-				thunkApi.dispatch(logout());
-			}
-
-			return thunkApi.rejectWithValue(error);
+export const checkAuth = createAsyncThunk<IAuthResponse>('auth/check-auth', async (_, thunkApi) => {
+	try {
+		const data = await AuthService.getNewTokens();
+		return data;
+	} catch (error) {
+		if (errorCatch(error) === 'jwt expired') {
+			toastrError('Logout', 'Your authorized is finished, plz sign in again');
+			thunkApi.dispatch(logout());
 		}
+
+		return thunkApi.rejectWithValue(error);
 	}
-);
+});
