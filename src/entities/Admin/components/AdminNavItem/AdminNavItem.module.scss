@@ -1,0 +1,20 @@
+.item {
+	@apply inline-block;
+}
+
+.link {
+	@apply relative block px-5 py-4 text-lg transition-colors text-white text-opacity-40 hover:text-opacity-100;
+
+	&::before {
+		content: '';
+		@apply absolute w-full h-0.5 bg-transparent transition-colors left-0 bottom-0 rounded-md;
+	}
+}
+
+._active {
+	@apply text-opacity-100;
+
+	&::before {
+		@apply bg-primary;
+	}
+}

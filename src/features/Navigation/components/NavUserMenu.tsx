@@ -1,6 +1,6 @@
 'use client';
 
-import { MouseEvent, useEffect } from 'react';
+import { MouseEvent } from 'react';
 
 import { useAuth } from '@/entities/User';
 
@@ -21,14 +21,19 @@ export const NavUserMenu = () => {
 		<MenuGroup title={'General'}>
 			{user ? (
 				<>
-					<MenuItem item={{ icon: 'MdSettings', link: '/profile', title: 'Profile' }} />
+					<MenuItem item={{ icon: 'MdSettings', link: '/profile', title: 'Профиль' }} />
 					{user.isAdmin && (
-						<MenuItem item={{ icon: 'MdOutlineLock', link: '/admin', title: 'Admin panel' }} />
+						<MenuItem
+							item={{ icon: 'MdOutlineLock', link: '/admin/statistic', title: 'Админ панель' }}
+						/>
 					)}
-					<MenuItem onClick={handleLogout} item={{ icon: 'MdLogout', link: '', title: 'Logout' }} />
+					<MenuItem
+						onClick={handleLogout}
+						item={{ icon: 'MdLogout', link: getAuthUrl('login'), title: 'Выйти' }}
+					/>
 				</>
 			) : (
-				<MenuItem item={{ icon: 'MdLogin', link: getAuthUrl('login'), title: 'Login' }} />
+				<MenuItem item={{ icon: 'MdLogin', link: getAuthUrl('login'), title: 'Войти' }} />
 			)}
 		</MenuGroup>
 	);

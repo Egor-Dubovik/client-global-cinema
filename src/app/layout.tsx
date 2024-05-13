@@ -1,31 +1,18 @@
-import type { Metadata } from 'next';
-import { Outfit } from 'next/font/google';
+import { Roboto } from 'next/font/google';
 
+// Ubuntu_Mono
 import Providers from '@/app/providers';
 
 import { Navigation } from '@/widgets/Navigation';
 import Sidebar from '@/widgets/Sidebar';
 
-import { BG_COLOR, TITLE_TEMPLATE } from '@/shared/config/seo/constants';
-
 import styles from './styles/Layout.module.scss';
 import './styles/globals.scss';
 
-const inter = Outfit({
-	subsets: ['latin'],
-	weight: ['300', '400', '500', '600', '700'],
+const inter = Roboto({
+	subsets: ['cyrillic'],
+	weight: ['300', '400', '500', '700'],
 });
-
-export const metadata: Metadata = {
-	title: {
-		template: TITLE_TEMPLATE,
-		default: '404',
-	},
-	themeColor: BG_COLOR,
-	appleWebApp: {
-		statusBarStyle: 'black',
-	},
-};
 
 export default function Layout({ children }: { children: React.ReactNode }) {
 	return (

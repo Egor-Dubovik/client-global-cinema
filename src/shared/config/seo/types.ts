@@ -1,7 +1,10 @@
+import { Metadata } from 'next';
+
 export interface ISeo {
 	title: string;
-	isTemplate?: boolean;
 	description?: string;
+	url?: string;
 	path?: string;
 	image?: string;
+	alternates?: Metadata['alternates'];
 }

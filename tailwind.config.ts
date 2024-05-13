@@ -31,6 +31,7 @@ const config: Config = {
 				700: '#242529',
 				800: '#191b1f',
 				900: '#101215',
+				1000: '#040404',
 			},
 		},
 		extend: {
@@ -103,7 +104,7 @@ const config: Config = {
 					},
 				},
 				'.air-block': {
-					backgroundColor: theme('colors.gray.900'),
+					backgroundColor: theme('colors.gray.1000'),
 					borderRadius: theme('borderRadius.layout'),
 					color: theme('colors.white'),
 					boxShadow: theme('boxShadow.lg'),

@@ -1,39 +1,40 @@
 import { Metadata } from 'next';
 
 import logo from '@/shared/assets/icons/logo.png';
-import { APP_NAME, TITLE_TEMPLATE } from '@/shared/config/seo/constants';
+import { APP_NAME } from '@/shared/config/seo/constants';
 import { ISeo } from '@/shared/config/seo/types';
 import { clearText } from '@/shared/lib/helpers/string/clearText';
 
 export const createMetadata = ({
 	title,
-	isTemplate = false,
 	path = '',
+	url,
 	description,
 	image,
+	alternates,
 }: ISeo): Metadata => {
-	const currentTile = isTemplate ? { template: TITLE_TEMPLATE, default: title } : title;
-
 	if (description) {
-		const currentUrl = `${process.env.APP_URL}${path}`;
+		const currentUrl = url ? url : `${process.env.APP_URL}${path}`;
+
 		return {
-			title: currentTile,
+			title: title.trim(),
 			description: clearText(description, 152),
 			metadataBase: new URL(currentUrl),
+			alternates,
 			openGraph: {
-				title: currentTile,
+				title: title.trim(),
 				description: clearText(description, 197),
 				url: currentUrl,
 				siteName: APP_NAME,
 				images: image || logo.src,
-				locale: 'en_US',
+				locale: 'ru_RU',
 				type: 'website',
 			},
 		};
 	}
 
 	return {
-		title: currentTile,
+		title: title.trim(),
 		robots: {
 			index: false,
 			follow: false,
