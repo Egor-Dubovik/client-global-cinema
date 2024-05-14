@@ -1,0 +1,13 @@
+.countUsers {
+	@apply flex items-center justify-center text-center;
+
+	.number {
+		@apply text-7xl mb-1 font-medium;
+		user-select: none;
+	}
+
+	.description {
+		@apply opacity-70 text-lg;
+		user-select: none;
+	}
+}

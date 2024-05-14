@@ -1,4 +1,4 @@
-import { getMostPopularMovies } from '@/entities/Movie/api/getMostPopularMovies';
+import { MovieService } from '@/entities/Movie/api';
 import { IMovie } from '@/entities/Movie/model/types';
 
 import { WithErrorBoundary } from '@/shared/hocs/WithErrorBoundary';
@@ -10,7 +10,7 @@ interface IProps {
 }
 
 export const PopularMoviesShortList = async ({ className }: IProps) => {
-	const movies = await getMostPopularMovies();
+	const movies = await MovieService.getMostPopularMovies();
 
 	return (
 		<WithErrorBoundary data={movies}>

@@ -43,20 +43,3 @@ $api.interceptors.response.use(
 		throw error;
 	}
 );
-
-// export default $api;
-
-// const $api = axios.create({
-// 	baseURL: API_URL,
-// 	headers: { 'Content-Type': 'application/json' },
-// });
-
-// $api.interceptors.response.use(
-// 	(response) => response,
-// 	(error: AxiosError) => {
-// 		if (axios.isCancel(error)) global.console.log('Request canceled', error.message);
-// 		return Promise.reject(error);
-// 	}
-// );
-
-// export default $api;

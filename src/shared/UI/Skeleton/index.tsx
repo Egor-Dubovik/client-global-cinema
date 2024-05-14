@@ -8,7 +8,7 @@ export const Skeleton = ({ className, ...rest }: SkeletonProps) => {
 			{...rest}
 			baseColor="#1f2125"
 			highlightColor="#292a2e"
-			className={cn('rounded-lg', className)}
+			className={cn('rounded-layout', className)}
 		/>
 	);
 };

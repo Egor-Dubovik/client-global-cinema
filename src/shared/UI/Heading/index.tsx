@@ -5,7 +5,7 @@ import styles from './styles.module.scss';
 export type TypeHeading = 'h1' | 'h2' | 'h3' | 'h4' | 'h5';
 
 interface IHeadingProps {
-	title: string;
+	title: string | number;
 	className?: string;
 	variant?: TypeHeading;
 }
