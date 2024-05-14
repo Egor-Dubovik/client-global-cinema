@@ -1,12 +1,16 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+import { UserActions } from '@/entities/User/model/actions';
+
 import { initialState } from './initialState';
 import { checkAuth, login, logout, register } from './thunks';
 
 const userSlice = createSlice({
 	name: 'user',
 	initialState,
-	reducers: {},
+	reducers: {
+		...UserActions,
+	},
 	extraReducers: (builder) => {
 		builder
 			//register
@@ -44,4 +48,5 @@ const userSlice = createSlice({
 	},
 });
 
+export const userActions = userSlice.actions;
 export const { reducer: userReducer } = userSlice;

@@ -31,7 +31,7 @@ const config: Config = {
 				700: '#242529',
 				800: '#191b1f',
 				900: '#101215',
-				1000: '#040404',
+				1000: '#04040482',
 			},
 		},
 		extend: {
@@ -108,6 +108,7 @@ const config: Config = {
 					borderRadius: theme('borderRadius.layout'),
 					color: theme('colors.white'),
 					boxShadow: theme('boxShadow.lg'),
+					opacity: '0.8',
 				},
 			});
 			addUtilities({

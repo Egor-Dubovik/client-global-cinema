@@ -1,5 +1,3 @@
-import dynamic from 'next/dynamic';
-
 import { NavGenresMenu, NavMainMenu, NavUserMenu } from '@/features/Navigation';
 
 import { Menu } from '@/shared/UI/Menu';

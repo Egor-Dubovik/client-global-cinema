@@ -18,7 +18,7 @@ export const NavGenresMenu = async () => {
 	return (
 		<>
 			{genreItems ? (
-				<MenuGroup title={'Genres'}>
+				<MenuGroup title={'Жанры'}>
 					{genreItems.map((genre) => (
 						<MenuItem key={genre.link} item={genre} />
 					))}

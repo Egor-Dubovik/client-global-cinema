@@ -3,27 +3,27 @@ import { IMenu } from '@/shared/UI/Menu/types';
 export const GENRES_MENU_AMOUNT = 4;
 
 export const mainMenu: IMenu = {
-	title: 'Menu',
+	title: 'Меню',
 	items: [
 		{
 			icon: 'MdHome',
 			link: '/',
-			title: 'Home',
+			title: 'Главная',
 		},
 		{
 			icon: 'MdExplore',
 			link: '/genres',
-			title: 'Discovery',
+			title: 'Дискавери',
 		},
 		{
 			icon: 'MdRefresh',
 			link: '/fresh',
-			title: 'Fresh movies',
+			title: 'Новое',
 		},
 		{
 			icon: 'MdLocalFireDepartment',
 			link: '/trending',
-			title: 'Trending now',
+			title: 'Актуальные',
 		},
 	],
 };

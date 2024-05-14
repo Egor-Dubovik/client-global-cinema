@@ -18,7 +18,7 @@ export const NavUserMenu = () => {
 	};
 
 	return (
-		<MenuGroup title={'General'}>
+		<MenuGroup title={'Общие'}>
 			{user ? (
 				<>
 					<MenuItem item={{ icon: 'MdSettings', link: '/profile', title: 'Профиль' }} />

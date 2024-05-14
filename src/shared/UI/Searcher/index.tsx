@@ -10,16 +10,23 @@ interface ISearchFieldProps {
 	handleSearch: (value: string) => void;
 	icon?: TypeMaterialIcon;
 	className?: string;
+	placeholder?: string;
 }
 
-const Searcher = ({ searchTerm, handleSearch, icon, className }: ISearchFieldProps) => {
+const Searcher = ({
+	searchTerm,
+	handleSearch,
+	icon,
+	className,
+	placeholder,
+}: ISearchFieldProps) => {
 	return (
 		<div className={cn(styles.wrapper, className)}>
 			{icon && <MaterialIcon name={icon} />}
 			<input
 				value={searchTerm}
 				onChange={(event) => handleSearch(event.target.value)}
-				placeholder="Search"
+				placeholder={placeholder || 'Поиск'}
 			/>
 		</div>
 	);
