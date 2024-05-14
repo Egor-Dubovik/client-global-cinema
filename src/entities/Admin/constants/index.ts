@@ -20,3 +20,5 @@ export const ADMIN_NAV_ITEMS = [
 		link: '/admin/genres',
 	},
 ];
+
+export const USER_TABLE_HEADERS = ['Email', 'Дата регистрации'];

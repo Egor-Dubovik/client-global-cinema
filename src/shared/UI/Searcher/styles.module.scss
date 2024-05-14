@@ -1,0 +1,27 @@
+.wrapper {
+	@apply p-2 flex items-center border border-solid border-gray-600 rounded-3xl transition-colors;
+	flex-wrap: nowrap;
+
+	input {
+		@apply bg-gray-900;
+		width: 100%;
+	}
+
+	input::placeholder {
+		@apply text-gray-500;
+	}
+
+	svg {
+		@apply fill-gray-500 mr-2 text-3xl transition-colors;
+		height: 25px;
+		flex: 0 0 25px;
+	}
+
+	&:focus-within {
+		@apply border-gray-500;
+
+		svg {
+			@apply fill-gray-400;
+		}
+	}
+}

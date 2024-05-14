@@ -5,8 +5,8 @@ import cn from 'classnames';
 import { useMovieSearch } from '@/features/SearchMovies/hooks/useMovieSearch';
 
 import { MovieSearchList } from '@/entities/Movie';
-import Searcher from '@/entities/Searcher';
 
+import Searcher from '@/shared/UI/Searcher';
 import useClickOutside from '@/shared/hooks/useClickOutside';
 
 import styles from './styles.module.scss';

@@ -2,7 +2,7 @@
 
 import { useRouter } from 'next/navigation';
 
-import { AdminHeading, AdminNavigation } from '@/entities/Admin';
+import { AdminNavigation } from '@/entities/Admin';
 import { useAuth } from '@/entities/User';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
@@ -17,7 +17,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 	return (
 		<div>
 			<AdminNavigation />
-			<AdminHeading />
 			{children}
 		</div>
 	);

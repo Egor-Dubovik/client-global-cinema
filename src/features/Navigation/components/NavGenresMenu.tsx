@@ -1,9 +1,9 @@
 import { GENRES_MENU_AMOUNT } from '@/features/Navigation/constants';
 
 import { getGenres, mapGenresToNavMenu } from '@/entities/Genre';
-import { Notifier } from '@/entities/Notifier';
 
 import { MenuGroup, MenuItem } from '@/shared/UI/Menu';
+import { Notifier } from '@/shared/UI/Notifier';
 import { Skeleton } from '@/shared/UI/Skeleton';
 import { INIT_VALUE } from '@/shared/constants/numbers';
 
