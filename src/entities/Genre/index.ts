@@ -1,3 +1,6 @@
 export type { IGenre } from './model/types';
-export { getGenres } from './api/getGenres';
+export { GenreService } from './api';
 export { mapGenresToNavMenu } from './api/mappers/mapGenresToNavMenu';
+export { GenresTable } from './components/GenresTable/GenresTable';
+
+export { getGenresList, getGenresListEach } from './helpers/getGenresList';

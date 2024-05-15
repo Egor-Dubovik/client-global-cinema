@@ -18,7 +18,7 @@ export const PopularMoviesShortList = async ({ className }: IProps) => {
 				<MoviesShortList
 					className={className}
 					movies={movies as IMovie[]}
-					title="Popular Movies"
+					title="Популярные фильмы"
 					link="/popular"
 				/>
 			)}

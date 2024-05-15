@@ -5,17 +5,18 @@ import { useEffect } from 'react';
 import { useAuth } from '@/entities/User';
 
 import { useActions } from '@/shared/hooks/useActions';
-import { getLocalStore } from '@/shared/utils/storage/getLocalStore';
+
+// import { getLocalStore } from '@/shared/utils/storage/getLocalStore';
 
 const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 	const pathname = usePathname();
 	const { user } = useAuth();
 	const { logout, checkAuth } = useActions();
-	const { setUser } = useActions();
+	// const { setUser } = useActions();
 
 	useEffect(() => {
 		if (Cookies.get('accessToken')) checkAuth();
-		setUser(getLocalStore('user'));
+		// setUser(getLocalStore('user'));
 	}, []);
 
 	useEffect(() => {

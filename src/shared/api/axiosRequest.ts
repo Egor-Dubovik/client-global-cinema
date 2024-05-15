@@ -21,7 +21,11 @@ export const axiosRequest = async <TResponse>({
 }: IAxiosRequest): Promise<TResponse | IError> => {
 	try {
 		const currentMethod = REQUEST_METHODS[method];
-		const response = await axiosClassic[currentMethod]<TResponse>(path, data, config);
+
+		const axiosArgs: [string, ...unknown[]] = [path];
+		if (data !== undefined) axiosArgs.push(data);
+		if (config !== undefined) axiosArgs.push(config);
+		const response = await axiosClassic[currentMethod]<TResponse>(...axiosArgs);
 		return response.data;
 	} catch (error) {
 		const err = error as IAxiosError;

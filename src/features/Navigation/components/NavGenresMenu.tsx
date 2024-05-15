@@ -1,6 +1,6 @@
 import { GENRES_MENU_AMOUNT } from '@/features/Navigation/constants';
 
-import { getGenres, mapGenresToNavMenu } from '@/entities/Genre';
+import { GenreService, mapGenresToNavMenu } from '@/entities/Genre';
 
 import { MenuGroup, MenuItem } from '@/shared/UI/Menu';
 import { Notifier } from '@/shared/UI/Notifier';
@@ -8,7 +8,7 @@ import { Skeleton } from '@/shared/UI/Skeleton';
 import { INIT_VALUE } from '@/shared/constants/numbers';
 
 export const NavGenresMenu = async () => {
-	const genres = await getGenres();
+	const genres = await GenreService.getGenres();
 	if ('error' in genres) {
 		return <Notifier type="warning" title="Warning" description={genres.error} />;
 	}
