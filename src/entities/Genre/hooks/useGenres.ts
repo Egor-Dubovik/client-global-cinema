@@ -25,7 +25,7 @@ export const useGenres = () => {
 			return genres.map(
 				(genre): ITableItem => ({
 					_id: genre._id,
-					editUrl: `genre/edit/${genre._id}`,
+					editUrl: `genres/edit/${genre._id}`,
 					items: [genre.name, genre.slug],
 				})
 			);
@@ -34,7 +34,7 @@ export const useGenres = () => {
 
 	const { mutateAsync: deleteAsync } = useMutation({
 		mutationKey: ['deleted genre'],
-		mutationFn: (userId: string) => GenreService.deleteGenre(userId),
+		mutationFn: (userId: string) => GenreService.delete(userId),
 		onError: (error) => {
 			toastrError(error, 'Удаление жанра');
 		},

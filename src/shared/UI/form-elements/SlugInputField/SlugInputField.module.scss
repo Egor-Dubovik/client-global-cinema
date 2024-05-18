@@ -1,0 +1,8 @@
+.field {
+	@apply relative;
+}
+
+.badge {
+	@apply uppercase absolute top-4 right-1 cursor-pointer rounded-lg py-1.5 px-2 transition-colors bg-gray-400 hover:bg-gray-300 text-xs text-gray-900;
+	font-weight: 500;
+}

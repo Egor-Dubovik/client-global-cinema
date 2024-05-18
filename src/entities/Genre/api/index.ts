@@ -1,4 +1,4 @@
-import { IGenre } from '@/entities/Genre';
+import { IGenre, IGenreEditInput } from '@/entities/Genre';
 
 import { axiosRequest } from '@/shared/api';
 import { $api } from '@/shared/api';
@@ -8,10 +8,18 @@ import { IError } from '@/shared/types/api.type';
 export const GenreService = {
 	async getGenres(searchTerm?: string): Promise<IError | IGenre[]> {
 		const params = searchTerm ? { searchTerm } : {};
-		return await axiosRequest<IGenre[]>({ path: getGenreUrl(''), config: { params } });
+		return axiosRequest<IGenre[]>({ path: getGenreUrl(''), config: { params } });
 	},
 
-	async deleteGenre(id: string) {
+	async getById(_id: string) {
+		return $api.get<IGenreEditInput>(getGenreUrl(_id));
+	},
+
+	async update(_id: string, data: IGenreEditInput) {
+		return $api.put<string>(getGenreUrl(_id), data);
+	},
+
+	async delete(id: string) {
 		return $api.delete<string>(getGenreUrl(id));
 	},
 };

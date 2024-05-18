@@ -7,3 +7,5 @@ export interface IGenre {
 	createdAt: string;
 	updatedAt: string;
 }
+
+export interface IGenreEditInput extends Omit<IGenre, '_id'> {}

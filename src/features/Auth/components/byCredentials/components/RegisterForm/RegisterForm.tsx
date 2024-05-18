@@ -5,7 +5,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { useAuth } from '@/entities/User';
 
 import { Button } from '@/shared/UI/Button';
-import { Input } from '@/shared/UI/Input';
+import { Input } from '@/shared/UI/form-elements/Input';
 import { getAuthUrl } from '@/shared/config/api.config';
 import { useActions } from '@/shared/hooks/useActions';
 

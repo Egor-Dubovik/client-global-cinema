@@ -8,6 +8,7 @@ import { useGenres } from '../../hooks/useGenres';
 
 export const GenresTable = () => {
 	const { searchTerm, handleSearch, data, isLoading, deleteAsync } = useGenres();
+
 	return (
 		<div>
 			<Searcher
