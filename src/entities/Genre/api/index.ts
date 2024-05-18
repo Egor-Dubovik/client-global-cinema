@@ -15,6 +15,10 @@ export const GenreService = {
 		return $api.get<IGenreEditInput>(getGenreUrl(_id));
 	},
 
+	async create() {
+		return $api.post<string>(getGenreUrl(''));
+	},
+
 	async update(_id: string, data: IGenreEditInput) {
 		return $api.put<string>(getGenreUrl(_id), data);
 	},
