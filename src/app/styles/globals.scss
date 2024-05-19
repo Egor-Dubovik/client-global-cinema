@@ -4,6 +4,7 @@
 
 @import './base/nullstyle.scss';
 @import './base/variables.scss';
+// @import './mixins/fade-gradient.scss';
 @import 'react-redux-toastr/src/styles/index';
 
 body {
@@ -21,4 +22,29 @@ a {
 
 * {
 	box-sizing: border-box;
+}
+
+// Slide animation
+
+.slide-animation-enter {
+	opacity: 0;
+	transform: scale(0.9);
+}
+.slide-animation-enter-active {
+	opacity: 1;
+	transform: translateX(0);
+	transition:
+		opacity 0.3s,
+		transform 0.3s;
+}
+
+.slide-animation-exit {
+	opacity: 1;
+}
+.slide-animation-exit-active {
+	opacity: 0;
+	transform: scale(0.9);
+	transition:
+		opacity 0.3s,
+		transform 0.3s;
 }

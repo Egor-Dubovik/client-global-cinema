@@ -10,6 +10,12 @@ export const MovieService = {
 		return axiosRequest<IMovie[]>({ path: getMovieUrl('most-popular') });
 	},
 
+	async getAll(): Promise<IError | IMovie[]> {
+		return await axiosRequest<IMovie[]>({
+			path: getMovieUrl(''),
+		});
+	},
+
 	async getMovies(searchTerm?: string): Promise<IError | IMovie[]> {
 		const params = searchTerm ? { searchTerm } : {};
 		return await axiosRequest<IMovie[]>({
