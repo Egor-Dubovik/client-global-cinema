@@ -24,3 +24,5 @@ export interface IAuthParams {
 	email: string;
 	password: string;
 }
+
+export interface IUserEditInput extends Omit<IUser, '_id'> {}

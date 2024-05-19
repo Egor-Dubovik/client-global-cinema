@@ -1,3 +1,4 @@
+import { useRouter } from 'next/navigation';
 import { useMemo, useState } from 'react';
 import { useMutation, useQuery } from 'react-query';
 import { toastr } from 'react-redux-toastr';
@@ -12,6 +13,7 @@ import { toastrError } from '@/shared/utils/error/toastrError';
 import { MovieService } from '../api';
 
 export const useMovies = () => {
+	const router = useRouter();
 	const [searchTerm, setSearchTerm] = useState('');
 	const debouncedQuery = useDebounce(searchTerm, DEBOUNCED_DELAY);
 
@@ -36,7 +38,7 @@ export const useMovies = () => {
 
 	const { mutateAsync: deleteAsync } = useMutation({
 		mutationKey: ['deleted movie'],
-		mutationFn: (userId: string) => MovieService.deleteMovie(userId),
+		mutationFn: (userId: string) => MovieService.delete(userId),
 		onError: (error) => {
 			toastrError(error, 'Удаление фильма');
 		},
@@ -46,12 +48,24 @@ export const useMovies = () => {
 		},
 	});
 
+	const { mutateAsync: createAsync } = useMutation({
+		mutationKey: ['create movie'],
+		mutationFn: () => MovieService.create(),
+		onError: (error) => {
+			toastrError(error, 'Создание фильма');
+		},
+		onSuccess: ({ data: _id }) => {
+			toastr.success('Фильм создан', 'создание прошло успешно');
+			router.push(`actors/edit/${_id}`);
+		},
+	});
+
 	const handleSearch = (query: string) => {
 		setSearchTerm(query);
 	};
 
 	return useMemo(
-		() => ({ ...queryData, searchTerm, handleSearch, deleteAsync }),
-		[queryData, searchTerm, deleteAsync]
+		() => ({ ...queryData, searchTerm, handleSearch, createAsync, deleteAsync }),
+		[queryData, searchTerm, createAsync, deleteAsync]
 	);
 };

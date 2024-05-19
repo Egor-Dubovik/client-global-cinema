@@ -1,0 +1,16 @@
+.form {
+	@apply mt-12;
+
+	.fields {
+		@apply flex items-center flex-wrap;
+		gap: 30px;
+
+		.field {
+			flex: 0 0 max(calc(33.333% - 20px), 250px);
+		}
+	}
+
+	> button {
+		@apply mt-10;
+	}
+}

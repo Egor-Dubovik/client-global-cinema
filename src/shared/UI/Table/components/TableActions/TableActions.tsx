@@ -1,25 +1,27 @@
-import { useRouter } from 'next/navigation';
+import cn from 'classnames';
 
-import MaterialIcon from '@/shared/UI/MaterialIcon';
-
-import styles from './TableActions.module.scss';
+import { Button } from '@/shared/UI/Button';
+import Searcher from '@/shared/UI/Searcher';
 
 interface IProps {
-	editUrl: string;
-	removeHandler: () => void;
+	searchTerm: string;
+	handleSearch: (value: string) => void;
+	handleCreate: () => void;
+	className?: string;
 }
 
-export const TableActions = ({ editUrl, removeHandler }: IProps) => {
-	const { push } = useRouter();
-
+export const TableActions = ({ searchTerm, handleCreate, handleSearch, className }: IProps) => {
 	return (
-		<div className={styles.actions}>
-			<button onClick={() => push(editUrl)}>
-				<MaterialIcon name="MdEdit" />
-			</button>
-			<button onClick={removeHandler}>
-				<MaterialIcon name="MdClose" />
-			</button>
+		<div className={cn('flex justify-between gap-10 mb-6', className)}>
+			<Searcher
+				className="max-w-xs"
+				searchTerm={searchTerm}
+				handleSearch={handleSearch}
+				icon="MdSearch"
+			/>
+			<Button className={'rounded-full'} onClick={handleCreate}>
+				Создать
+			</Button>
 		</div>
 	);
 };

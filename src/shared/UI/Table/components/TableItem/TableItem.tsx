@@ -1,5 +1,5 @@
 import { ITableItem } from '../../types';
-import { TableActions } from '../TableActions/TableActions';
+import { TableItemActions } from '../TableItemActions/TableItemActions';
 
 interface IProps {
 	className?: string;
@@ -13,7 +13,7 @@ export const TableItem = ({ className, tableItem, removeHandler }: IProps) => {
 			{tableItem.items.map((item) => (
 				<div key={item}>{item}</div>
 			))}
-			<TableActions editUrl={tableItem.editUrl} removeHandler={removeHandler} />
+			<TableItemActions editUrl={tableItem.editUrl} removeHandler={removeHandler} />
 		</div>
 	);
 };

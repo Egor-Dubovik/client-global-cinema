@@ -1,21 +1,19 @@
 'use client';
 
-import Searcher from '@/shared/UI/Searcher';
-import { Table } from '@/shared/UI/Table';
+import { Table, TableActions } from '@/shared/UI/Table';
 
 import { MOVIE_TABLE_HEADERS } from '../../consts';
 import { useMovies } from '../../hooks/useMovies';
 
 export const MovieTable = () => {
-	const { searchTerm, handleSearch, data, isLoading, deleteAsync } = useMovies();
+	const { searchTerm, handleSearch, data, isLoading, createAsync, deleteAsync } = useMovies();
 
 	return (
 		<div>
-			<Searcher
-				className="mb-6 max-w-xs"
+			<TableActions
 				searchTerm={searchTerm}
 				handleSearch={handleSearch}
-				icon="MdSearch"
+				handleCreate={() => createAsync()}
 			/>
 			<Table
 				headerItems={MOVIE_TABLE_HEADERS}

@@ -5,3 +5,5 @@ export interface IActor {
 	photo: string;
 	countMovies: number;
 }
+
+export interface IActorEditInput extends Omit<IActor, '_id'> {}

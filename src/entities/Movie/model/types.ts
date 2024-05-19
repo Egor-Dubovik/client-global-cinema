@@ -28,3 +28,5 @@ export interface IMovieShortList {
 	link: string;
 	movies: IMovie[];
 }
+
+export interface IMovieEditInput extends Omit<IGenre, '_id'> {}

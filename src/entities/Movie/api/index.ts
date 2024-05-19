@@ -1,4 +1,5 @@
 import { IMovie } from '@/entities/Movie';
+import { IMovieEditInput } from '@/entities/Movie/model/types';
 
 import { $api, axiosRequest } from '@/shared/api';
 import { getMovieUrl } from '@/shared/config/api.config';
@@ -17,7 +18,19 @@ export const MovieService = {
 		});
 	},
 
-	async deleteMovie(id: string) {
+	async getById(_id: string) {
+		return $api.get<IMovieEditInput>(getMovieUrl(_id));
+	},
+
+	async update(_id: string, data: IMovieEditInput) {
+		return $api.put<string>(getMovieUrl(_id), data);
+	},
+
+	async create() {
+		return $api.post<string>(getMovieUrl(''));
+	},
+
+	async delete(id: string) {
 		return $api.delete<string>(getMovieUrl(id));
 	},
 };

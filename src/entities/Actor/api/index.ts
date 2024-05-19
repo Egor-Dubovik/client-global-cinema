@@ -3,7 +3,7 @@ import { $api } from '@/shared/api';
 import { getActorUrl } from '@/shared/config/api.config';
 import { IError } from '@/shared/types/api.type';
 
-import { IActor } from '../model/types';
+import { IActor, IActorEditInput } from '../model/types';
 
 export const ActorService = {
 	async getActors(searchTerm?: string): Promise<IError | IActor[]> {
@@ -13,7 +13,19 @@ export const ActorService = {
 		});
 	},
 
-	async deleteActor(id: string) {
+	async getById(_id: string) {
+		return $api.get<IActorEditInput>(getActorUrl(_id));
+	},
+
+	async update(_id: string, data: IActorEditInput) {
+		return $api.put<string>(getActorUrl(_id), data);
+	},
+
+	async create() {
+		return $api.post<string>(getActorUrl(''));
+	},
+
+	async delete(id: string) {
 		return $api.delete<string>(getActorUrl(id));
 	},
 };
