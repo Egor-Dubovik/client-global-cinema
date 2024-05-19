@@ -23,7 +23,7 @@ export const MovieService = {
 	},
 
 	async update(_id: string, data: IMovieEditInput) {
-		return $api.put<string>(getMovieUrl(_id), data);
+		return $api.put<string>(getMovieUrl(_id), { ...data, videoUrl: data.videoUrl[0] });
 	},
 
 	async create() {

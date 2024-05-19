@@ -1,15 +1,14 @@
 'use client';
 
 import { Controller, useForm } from 'react-hook-form';
-import { stripHtml } from 'string-strip-html';
 
-import { useGenreEdit } from '@/features/EditGenre/hooks/useGenreEdit';
+import { useMovieEdit } from '@/features/EditMovie/hooks/useMovieEdit';
 
-import { IGenreEditInput } from '@/entities/Genre';
+import { UploadInputField } from '@/entities/File';
+import { IMovieEditInput } from '@/entities/Movie';
 
 import { Button } from '@/shared/UI/Button';
 import { Skeleton } from '@/shared/UI/Skeleton';
-import { TextEditor } from '@/shared/UI/TextEditor';
 import { Input } from '@/shared/UI/form-elements/Input';
 import { SlugInputField } from '@/shared/UI/form-elements/SlugInputField/SlugInputField';
 import { INIT_VALUE } from '@/shared/constants/numbers';
@@ -24,8 +23,8 @@ export const MovieEditForm = () => {
 		formState: { errors },
 		setValue,
 		getValues,
-	} = useForm<IGenreEditInput>({ mode: 'onChange' });
-	const { onSubmit, isLoading } = useGenreEdit(setValue);
+	} = useForm<IMovieEditInput>({ mode: 'onChange' });
+	const { onSubmit, isLoading } = useMovieEdit(setValue);
 
 	return (
 		<form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
@@ -34,40 +33,99 @@ export const MovieEditForm = () => {
 					<div className={styles.fields}>
 						<Input
 							className={styles.field}
-							{...register('name', { required: 'Требуется имя' })}
-							placeholder="Имя"
-							error={errors.name}
+							{...register('title', { required: 'Требуется заголовок' })}
+							placeholder="заголовок"
+							error={errors.title}
 						/>
 
 						<div className={styles.field}>
 							<SlugInputField
 								register={register}
 								error={errors.slug}
-								generate={() => setValue('slug', getValues('name'))}
+								generate={() => setValue('slug', getValues('title'))}
 							/>
 						</div>
+
 						<Input
 							className={styles.field}
-							{...register('icon', { required: 'Требуется иконка' })}
-							placeholder="Иконка"
-							error={errors.icon}
+							{...register('parameters.country', { required: 'Требуется страна' })}
+							placeholder="страна"
+							error={errors.parameters?.country}
 						/>
+
+						<Input
+							className={styles.field}
+							{...register('parameters.duration', {
+								required: 'Требуется продолжительность фильма',
+							})}
+							placeholder="продолжительность"
+							error={errors.parameters?.duration}
+						/>
+
+						<Input
+							className={styles.field}
+							{...register('parameters.year', {
+								required: 'Требуется год выпуска',
+							})}
+							placeholder="год"
+							error={errors.parameters?.year}
+						/>
+
+						<div></div>
 					</div>
 					<Controller
 						control={control}
-						name="description"
+						name="poster"
 						defaultValue={''}
 						render={({ field: { value, onChange }, fieldState: { error } }) => (
-							<TextEditor value={value} onChange={onChange} error={error} placeholder="Описание" />
+							<UploadInputField
+								value={Array.isArray(value) ? value[INIT_VALUE] : value}
+								onChange={onChange}
+								error={error}
+								placeholder="Постер"
+								folder="movies/posters"
+							/>
 						)}
 						rules={{
-							validate: {
-								required: (value) =>
-									(value && stripHtml(value).result.length > INIT_VALUE) || 'Требуется описание',
-							},
+							required: 'Требуется постер',
 						}}
 					/>
-					<Button className={styles.button}>update</Button>
+					<Controller
+						control={control}
+						name="bigPoster"
+						defaultValue={''}
+						render={({ field: { value, onChange }, fieldState: { error } }) => (
+							<UploadInputField
+								value={Array.isArray(value) ? value[INIT_VALUE] : value}
+								onChange={onChange}
+								error={error}
+								placeholder="Большой постер"
+								folder="movies/posters"
+							/>
+						)}
+						rules={{
+							required: 'Требуется большой постер',
+						}}
+					/>
+					<Controller
+						control={control}
+						name="videoUrl"
+						defaultValue={''}
+						render={({ field: { value, onChange }, fieldState: { error } }) => (
+							<UploadInputField
+								value={Array.isArray(value) ? value[INIT_VALUE] : value}
+								onChange={onChange}
+								error={error}
+								placeholder="Видео"
+								folder="movies/trailers"
+								isNoImage
+							/>
+						)}
+						rules={{
+							required: 'Требуется видео',
+						}}
+					/>
+					<Button className={styles.button}>обновить</Button>
 				</>
 			) : (
 				<Skeleton count={3} />

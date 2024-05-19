@@ -29,7 +29,7 @@ export const useMovies = () => {
 			return movies.map(
 				(movie): ITableItem => ({
 					_id: movie._id,
-					editUrl: `movie/edit/${movie._id}`,
+					editUrl: `movies/edit/${movie._id}`,
 					items: [movie.title, getGenresList(movie.genres), String(movie.rating)],
 				})
 			);
@@ -56,7 +56,7 @@ export const useMovies = () => {
 		},
 		onSuccess: ({ data: _id }) => {
 			toastr.success('Фильм создан', 'создание прошло успешно');
-			router.push(`actors/edit/${_id}`);
+			router.push(`movies/edit/${_id}`);
 		},
 	});
 

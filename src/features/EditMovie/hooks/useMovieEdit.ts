@@ -3,42 +3,43 @@ import { SubmitHandler, UseFormSetValue } from 'react-hook-form';
 import { useMutation, useQuery } from 'react-query';
 import { toastr } from 'react-redux-toastr';
 
-import { GenreService, IGenreEditInput } from '@/entities/Genre';
+import { IMovieEditInput } from '@/entities/Movie';
+import { MovieService } from '@/entities/Movie/api';
 
 import { toastrError } from '@/shared/utils/error/toastrError';
 import { getObjectKeys } from '@/shared/utils/object/getObjectKeys';
 
-export const useGenreEdit = (setValue: UseFormSetValue<IGenreEditInput>) => {
+export const useMovieEdit = (setValue: UseFormSetValue<IMovieEditInput>) => {
 	const params = useParams();
 	const { push } = useRouter();
 
 	const genreId = String(params.id);
 
 	const { isLoading } = useQuery({
-		queryKey: ['genre', genreId],
-		queryFn: () => GenreService.getById(genreId),
+		queryKey: ['movie', genreId],
+		queryFn: () => MovieService.getById(genreId),
 		onSuccess: ({ data }) => {
 			getObjectKeys(data).forEach((key) => {
 				setValue(key, data[key]);
 			});
 		},
 		onError: (error) => {
-			toastrError(error, 'Получение жанра');
+			toastrError(error, 'Получение фильма');
 		},
 		enabled: !!params.id,
 	});
 
 	const { mutateAsync } = useMutation({
-		mutationKey: 'updateGenre',
-		mutationFn: (data: IGenreEditInput) => GenreService.update(genreId, data),
+		mutationKey: 'update movies',
+		mutationFn: (data: IMovieEditInput) => MovieService.update(genreId, data),
 		onSuccess: () => {
-			toastr.success('Жанр обновлён', 'обновление прошло успешно');
-			push('/admin/genres');
+			toastr.success('Фильм обновлён', 'обновление прошло успешно');
+			push('/admin/statistic/movies');
 		},
-		onError: (error) => toastrError(error, 'Обновление жанра'),
+		onError: (error) => toastrError(error, 'Обновление фильма'),
 	});
 
-	const onSubmit: SubmitHandler<IGenreEditInput> = async (data) => {
+	const onSubmit: SubmitHandler<IMovieEditInput> = async (data) => {
 		await mutateAsync(data);
 	};
 

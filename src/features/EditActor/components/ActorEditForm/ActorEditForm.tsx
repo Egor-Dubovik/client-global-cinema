@@ -50,19 +50,15 @@ export const ActorEditForm = () => {
 						control={control}
 						name="photo"
 						defaultValue=""
-						render={({ field: { value, onChange }, fieldState: { error } }) => {
-							console.log(value);
-
-							return (
-								<UploadInputField
-									value={Array.isArray(value) ? value[INIT_VALUE] : value}
-									onChange={onChange}
-									error={error}
-									placeholder="Фото"
-									folder="actors"
-								/>
-							);
-						}}
+						render={({ field: { value, onChange }, fieldState: { error } }) => (
+							<UploadInputField
+								value={Array.isArray(value) ? value[INIT_VALUE] : value}
+								onChange={onChange}
+								error={error}
+								placeholder="Фото"
+								folder="actors"
+							/>
+						)}
 						rules={{
 							required: 'Требуется фотография',
 						}}
