@@ -4,12 +4,15 @@ import { Controller, useForm } from 'react-hook-form';
 
 import { useMovieEdit } from '@/features/EditMovie/hooks/useMovieEdit';
 
+import { useAdminActors } from '@/entities/Actor';
 import { UploadInputField } from '@/entities/File';
+import { useAdminGenres } from '@/entities/Genre';
 import { IMovieEditInput } from '@/entities/Movie';
 
 import { Button } from '@/shared/UI/Button';
 import { Skeleton } from '@/shared/UI/Skeleton';
 import { Input } from '@/shared/UI/form-elements/Input';
+import { Select } from '@/shared/UI/form-elements/Select';
 import { SlugInputField } from '@/shared/UI/form-elements/SlugInputField/SlugInputField';
 import { INIT_VALUE } from '@/shared/constants/numbers';
 
@@ -25,6 +28,8 @@ export const MovieEditForm = () => {
 		getValues,
 	} = useForm<IMovieEditInput>({ mode: 'onChange' });
 	const { onSubmit, isLoading } = useMovieEdit(setValue);
+	const { isLoading: isGenresLoading, data: genres } = useAdminGenres();
+	const { isLoading: isActorsLoading, data: actors } = useAdminActors();
 
 	return (
 		<form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
@@ -70,9 +75,44 @@ export const MovieEditForm = () => {
 							placeholder="год"
 							error={errors.parameters?.year}
 						/>
-
-						<div></div>
 					</div>
+					<div>
+						<Controller
+							control={control}
+							name="genres"
+							render={({ field, fieldState: { error } }) => (
+								<Select
+									field={field}
+									options={genres || []}
+									error={error}
+									isLoading={isGenresLoading}
+									isMultiple
+									placeholder="Жанры"
+								/>
+							)}
+							rules={{
+								required: 'выберите хотя бы один жанр',
+							}}
+						/>
+						<Controller
+							control={control}
+							name="actors"
+							render={({ field, fieldState: { error } }) => (
+								<Select
+									field={field}
+									options={actors || []}
+									error={error}
+									isLoading={isActorsLoading}
+									isMultiple
+									placeholder="актёры"
+								/>
+							)}
+							rules={{
+								required: 'выберите хотя бы одного актёра',
+							}}
+						/>
+					</div>
+
 					<Controller
 						control={control}
 						name="poster"

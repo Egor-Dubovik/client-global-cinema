@@ -67,7 +67,7 @@ export const GenreEditForm = () => {
 							},
 						}}
 					/>
-					<Button className={styles.button}>update</Button>
+					<Button className={styles.button}>обновить</Button>
 				</>
 			) : (
 				<Skeleton count={3} />

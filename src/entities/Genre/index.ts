@@ -4,3 +4,5 @@ export { mapGenresToNavMenu } from './api/mappers/mapGenresToNavMenu';
 export { GenresTable } from './components/GenresTable/GenresTable';
 
 export { getGenresList, getGenresListEach } from './helpers/getGenresList';
+
+export { useAdminGenres } from './hooks/useAdminGenres';

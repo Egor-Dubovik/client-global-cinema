@@ -1,6 +1,7 @@
 import { axiosRequest } from '@/shared/api';
 import { $api } from '@/shared/api';
 import { getActorUrl } from '@/shared/config/api.config';
+import { getFirstElementOrOriginal } from '@/shared/helpers/array/getFirstElementOrOriginal';
 import { IError } from '@/shared/types/api.type';
 
 import { IActor, IActorEditInput } from '../model/types';
@@ -18,6 +19,7 @@ export const ActorService = {
 	},
 
 	async update(_id: string, data: IActorEditInput) {
+		data.photo = getFirstElementOrOriginal(data.photo);
 		return $api.put<string>(getActorUrl(_id), data);
 	},
 

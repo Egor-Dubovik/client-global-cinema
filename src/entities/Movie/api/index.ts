@@ -3,6 +3,7 @@ import { IMovieEditInput } from '@/entities/Movie/model/types';
 
 import { $api, axiosRequest } from '@/shared/api';
 import { getMovieUrl } from '@/shared/config/api.config';
+import { getFirstElementOrOriginal } from '@/shared/helpers/array/getFirstElementOrOriginal';
 import { IError } from '@/shared/types/api.type';
 
 export const MovieService = {
@@ -29,7 +30,8 @@ export const MovieService = {
 	},
 
 	async update(_id: string, data: IMovieEditInput) {
-		return $api.put<string>(getMovieUrl(_id), { ...data, videoUrl: data.videoUrl[0] });
+		data.videoUrl = getFirstElementOrOriginal(data.videoUrl);
+		return $api.put<string>(getMovieUrl(_id), data);
 	},
 
 	async create() {
