@@ -21,7 +21,7 @@ export const useUsers = () => {
 			data.map(
 				(user): ITableItem => ({
 					_id: user._id,
-					editUrl: `user/edit/${user._id}`,
+					editUrl: `users/edit/${user._id}`,
 					items: [user.email, convertMongoDate(user.createdAt)],
 				})
 			),

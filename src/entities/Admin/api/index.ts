@@ -15,7 +15,7 @@ export const AdminService = {
 	},
 
 	async getById(_id: string) {
-		return $api.get<IUserEditInput>(getUserUrl(_id));
+		return $api.get<IUser>(getUserUrl(_id));
 	},
 
 	async create() {
@@ -23,6 +23,7 @@ export const AdminService = {
 	},
 
 	async update(_id: string, data: IUserEditInput) {
+		if (data.password === '') data.password = null;
 		return $api.put<string>(getUserUrl(_id), data);
 	},
 

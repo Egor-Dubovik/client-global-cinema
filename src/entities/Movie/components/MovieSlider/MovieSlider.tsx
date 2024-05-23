@@ -15,7 +15,7 @@ export const MovieSlider = async () => {
 			{(movies as IMovie[]).length > INIT_VALUE && (
 				<Slider
 					buttonTitle="смотреть"
-					slides={(movies as IMovie[]).slice(0, 3).map((movie) => ({
+					slides={(movies as IMovie[]).slice(0, 5).map((movie) => ({
 						_id: movie._id,
 						bigPoster: movie.bigPoster,
 						title: movie.title,
