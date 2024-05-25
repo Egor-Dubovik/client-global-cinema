@@ -5,3 +5,4 @@ export { StatisticPopularMovie } from './components/StatisticPopularMovie/Statis
 export { MovieTable } from './components/MovieTable/MovieTable';
 export { MovieSlider } from './components/MovieSlider/MovieSlider';
 export { TrendingMovieGallery } from './components/TrendingMovieGallery/TrendingMovieGallery';
+export { mapMoviesToGalleryItems } from './mappers/mapMoviesToGalleryItems';

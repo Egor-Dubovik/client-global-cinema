@@ -5,7 +5,7 @@ import { Heading } from '@/shared/UI/Heading';
 import { createMetadata } from '@/shared/config/seo/meta.config';
 
 export const metadata = createMetadata({
-	title: `Home`,
+	title: `Главная`,
 	description: 'Смотрите фильмы онлайн в браузере',
 });
 

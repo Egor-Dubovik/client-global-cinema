@@ -17,12 +17,12 @@ export const mainMenu: IMenu = {
 		},
 		{
 			icon: 'MdRefresh',
-			link: '/fresh',
+			link: '/movies/fresh',
 			title: 'Новое',
 		},
 		{
 			icon: 'MdLocalFireDepartment',
-			link: '/trending',
+			link: '/movies/trending',
 			title: 'Актуальные',
 		},
 	],
