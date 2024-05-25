@@ -15,6 +15,10 @@ export const GenreService = {
 		return $api.get<IGenreEditInput>(getGenreUrl(_id));
 	},
 
+	async getBySlug(slug: string) {
+		return axiosRequest<IGenre>({ path: getGenreUrl(`by-slug/${slug}`) });
+	},
+
 	async create() {
 		return $api.post<string>(getGenreUrl(''));
 	},

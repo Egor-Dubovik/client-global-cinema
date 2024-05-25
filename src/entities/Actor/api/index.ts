@@ -15,7 +15,11 @@ export const ActorService = {
 	},
 
 	async getById(_id: string) {
-		return $api.get<IActorEditInput>(getActorUrl(_id));
+		return $api.get<IActor>(getActorUrl(_id));
+	},
+
+	async getBySlug(slug: string) {
+		return axiosRequest<IActor>({ path: getActorUrl(`by-slug/${slug}`) });
 	},
 
 	async update(_id: string, data: IActorEditInput) {
