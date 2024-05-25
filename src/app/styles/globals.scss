@@ -4,8 +4,8 @@
 
 @import './base/nullstyle.scss';
 @import './base/variables.scss';
-// @import './mixins/fade-gradient.scss';
-@import './libs//react-select.scss';
+@import './mixins/styles';
+@import './libs/react-select.scss';
 @import 'react-redux-toastr/src/styles/index';
 
 body {

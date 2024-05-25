@@ -4,3 +4,4 @@ export { PopularMoviesShortList } from './components/PopularMoviesShortList/Popu
 export { StatisticPopularMovie } from './components/StatisticPopularMovie/StatisticPopularMovie';
 export { MovieTable } from './components/MovieTable/MovieTable';
 export { MovieSlider } from './components/MovieSlider/MovieSlider';
+export { TrendingMovieGallery } from './components/TrendingMovieGallery/TrendingMovieGallery';
