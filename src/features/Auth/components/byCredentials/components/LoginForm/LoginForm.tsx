@@ -7,9 +7,9 @@ import { useAuth } from '@/entities/User';
 import { Button } from '@/shared/UI/Button';
 import { Input } from '@/shared/UI/form-elements/Input';
 import { getAuthUrl } from '@/shared/config/api.config';
+import { getEmailRules, getPasswordRules } from '@/shared/helpers/formRules/userRules';
 import { useActions } from '@/shared/hooks/useActions';
 
-import { getEmailRules, getPasswordRules } from '../../../../helpers/rules';
 import { FormLinkText } from '../../../FormLinkText';
 import { ILoginForm } from '../../type';
 

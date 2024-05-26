@@ -25,6 +25,6 @@ export interface IAuthParams {
 	password: string;
 }
 
-export interface IUserEditInput extends Omit<IUser, '_id' | 'favorites' | 'createdAt'> {
+export interface IUserEditInput extends Pick<IUser, 'email' | 'isAdmin'> {
 	password: string | null;
 }

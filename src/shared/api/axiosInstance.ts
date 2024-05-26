@@ -2,6 +2,7 @@ import axios, { AxiosError } from 'axios';
 
 import { AuthService } from '@/entities/User';
 
+import { getAuthUrl } from '@/shared/config/api.config';
 import { createAxiosInstance } from '@/shared/utils/axios';
 import { errorCatch } from '@/shared/utils/error/errorCatch';
 
@@ -36,6 +37,7 @@ $api.interceptors.response.use(
 			} catch (e) {
 				if (errorCatch(e) === 'jwt expired') {
 					await AuthService.logout();
+					window.location.href = getAuthUrl('/login');
 				}
 				console.log('NOT AUTHORIZED');
 			}

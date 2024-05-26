@@ -12,11 +12,9 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 	const pathname = usePathname();
 	const { user } = useAuth();
 	const { logout, checkAuth } = useActions();
-	// const { setUser } = useActions();
 
 	useEffect(() => {
 		if (Cookies.get('accessToken')) checkAuth();
-		// setUser(getLocalStore('user'));
 	}, []);
 
 	useEffect(() => {

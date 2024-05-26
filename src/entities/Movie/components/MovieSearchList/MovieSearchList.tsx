@@ -2,9 +2,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import { MOVIE_NOT_FOUND } from '@/entities/Movie/consts';
+import { IMovie } from '@/entities/Movie/model/types';
 
 import { List, ListItem } from '@/shared/UI/List';
-import { IMovie } from '@/shared/api/movies/models';
 import { getMovieUrl } from '@/shared/config/api.config';
 
 import styles from './MovieSearchList.module.scss';

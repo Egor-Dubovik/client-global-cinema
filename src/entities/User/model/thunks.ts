@@ -4,6 +4,7 @@ import { toastr } from 'react-redux-toastr';
 import { AuthService } from '@/entities/User/api/services/auth';
 import { IAuthParams, IAuthResponse } from '@/entities/User/model/types';
 
+import { getAuthUrl } from '@/shared/config/api.config';
 import { errorCatch } from '@/shared/utils/error/errorCatch';
 import { toastrError } from '@/shared/utils/error/toastrError';
 
@@ -38,6 +39,7 @@ export const login = createAsyncThunk<IAuthResponse, IAuthParams>(
 export const logout = createAsyncThunk('auth/logout', async (_, thunkApi) => {
 	try {
 		await AuthService.logout();
+		window.location.href = getAuthUrl('/login');
 	} catch (error) {
 		toastrError(error);
 		return thunkApi.rejectWithValue(error);
