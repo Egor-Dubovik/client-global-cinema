@@ -1,0 +1,20 @@
+.wrapper {
+	@apply w-1/2 mx-auto my-10 air-block p-7 text-center;
+
+	> h3 {
+		@apply text-2xl font-semibold mb-1;
+	}
+
+	> div {
+		@apply text-4xl opacity-90;
+	}
+
+	> .thanks {
+		@apply text-yellow-700 text-xl font-semibold animate-scaleIn;
+	}
+
+	.btn {
+		@apply rounded-full;
+		margin: 20px auto 0 auto;
+	}
+}

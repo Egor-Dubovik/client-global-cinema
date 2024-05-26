@@ -2,7 +2,7 @@ import { IMovie } from '@/entities/Movie';
 import { IMovieEditInput } from '@/entities/Movie/model/types';
 
 import { $api, axiosRequest } from '@/shared/api';
-import { getMovieUrl } from '@/shared/config/api.config';
+import { getMovieUrl, getRatingUrl } from '@/shared/config/api.config';
 import { getFirstElementOrOriginal } from '@/shared/helpers/array/getFirstElementOrOriginal';
 import { IError } from '@/shared/types/api.type';
 
@@ -60,5 +60,13 @@ export const MovieService = {
 
 	async delete(id: string) {
 		return $api.delete<string>(getMovieUrl(id));
+	},
+
+	async setRating(movieId: string, value: number) {
+		return $api.post<string>(getRatingUrl('set-rating'), { movieId, value });
+	},
+
+	async getByUserMovie(movieId: string) {
+		return $api.get<number>(getRatingUrl(movieId));
 	},
 };
