@@ -95,10 +95,11 @@ const config: Config = {
 					},
 				},
 				'.text-link': {
-					color: 'rgba(255, 255, 255, 0.9)',
+					color: 'rgba(255, 255, 255, 0.8)',
 					transition: 'text-decoration-color 0.3s ease',
 					textDecoration: 'underline',
 					textUnderlineOffset: '2px',
+					textDecorationColor: 'rgba(255, 255, 255, 0.6)',
 					'&:hover': {
 						textDecorationColor: 'rgba(255, 255, 255, 0.9)',
 					},

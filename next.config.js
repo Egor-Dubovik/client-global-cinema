@@ -8,7 +8,6 @@ const nextConfig = {
 	},
 	sassOptions: {
 		prependData: `@import "./src/app/styles/base/variables.scss";`,
-		prependData: `@import "./src/app/styles/mixins/styles.scss";`,
 	},
 	async rewrites() {
 		return [

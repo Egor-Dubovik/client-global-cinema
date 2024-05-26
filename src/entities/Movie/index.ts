@@ -6,3 +6,4 @@ export { MovieTable } from './components/MovieTable/MovieTable';
 export { MovieSlider } from './components/MovieSlider/MovieSlider';
 export { TrendingMovieGallery } from './components/TrendingMovieGallery/TrendingMovieGallery';
 export { mapMoviesToGalleryItems } from './mappers/mapMoviesToGalleryItems';
+export { MovieCard } from './components/MovieCard/MovieCard';

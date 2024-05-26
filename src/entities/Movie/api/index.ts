@@ -8,7 +8,7 @@ import { IError } from '@/shared/types/api.type';
 
 export const MovieService = {
 	async getMostPopularMovies(): Promise<IMovie[] | IError> {
-		return axiosRequest<IMovie[]>({ path: getMovieUrl('most-popular') });
+		return await axiosRequest<IMovie[]>({ path: getMovieUrl('most-popular') });
 	},
 
 	async getAll(): Promise<IError | IMovie[]> {
@@ -27,6 +27,12 @@ export const MovieService = {
 
 	async getById(_id: string) {
 		return $api.get<IMovieEditInput>(getMovieUrl(_id));
+	},
+
+	async getBySlug(slug: string) {
+		return await axiosRequest<IMovie>({
+			path: getMovieUrl(`by-slug/${slug}`),
+		});
 	},
 
 	async getByGenreIds(genreIds: string[]) {
