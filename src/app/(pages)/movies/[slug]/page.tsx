@@ -1,5 +1,7 @@
 import { Metadata } from 'next';
 
+import { VideoClientWrapper } from '@/app/(pages)/movies/[slug]/VideoClientWrapper';
+
 import { IMovie, MovieCard, mapMoviesToGalleryItems } from '@/entities/Movie';
 import { MovieService } from '@/entities/Movie/api';
 
@@ -37,6 +39,7 @@ const MoviePage = async ({ params: { slug } }: IProps) => {
 		<section>
 			<WithErrorBoundary data={movie}>
 				<MovieCard className="mb-10" movie={movie} />
+				<VideoClientWrapper videoSrc={movie.videoUrl} />
 				<Catalog items={similarMovies} title="Похожие фильмы" variant="vertical" />
 			</WithErrorBoundary>
 		</section>

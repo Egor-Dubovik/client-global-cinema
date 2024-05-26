@@ -1,0 +1,24 @@
+.placeholder {
+	@apply relative w-full bg-gray-800 bg-opacity-70;
+	padding-bottom: 33%;
+
+	> div {
+		@apply absolute text-center;
+		top: 50%;
+		left: 50%;
+		max-width: 400px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		transform: translate(-50%, -50%);
+
+		> p {
+			@apply text-white mb-4 text-lg;
+		}
+	}
+}
+
+.btn {
+	@apply py-2 px-7 text-lg rounded-full;
+}
